@@ -1,0 +1,98 @@
+export default function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="container footer__container">
+        <div className="footer__col footer__col--brand">
+          <a href="/" className="header__logo">
+            <img src="/img/logo-Ibmec.svg" alt="Logo Ibmec" />
+          </a>
+          <p>
+            Avenida Armando Lombardi, 949
+            <br />
+            Barra da Tijuca, Rio de Janeiro
+          </p>
+          <a href="#">Entre em contato conosco</a>
+          <a href="#">Feedback do site</a>
+          <div className="footer__social-links">
+            <a href="https://x.com/Ibmec_oficial">
+              <img src="/img/icons/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="#">
+              <img src="/img/icons/instagram.svg" alt="Instagram" />
+            </a>
+            <a href="#">
+              <img src="/img/icons/tik-tok.svg" alt="TikTok" />
+            </a>
+            <a href="#">
+              <img src="/img/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+          </div>
+        </div>
+
+        <div className="footer__col">
+          <h3 className="footer__col-title">O Ibmec</h3>
+          <ul className="footer__who-list">
+            <li>
+              <a href="/quem-somos">Quem somos</a>
+            </li>
+            <li>
+              <a href="#">Perguntas Frequentes</a>
+            </li>
+            <li>
+              <a href="#">Responsabilidade social</a>
+            </li>
+            <li>
+              <a href="#">Informações Acadêmicas</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="footer__col footer__col--projects">
+          <h3 className="footer__col-title">Projetos</h3>
+          <ul className="footer__project-list">
+            <li>
+              <a href="#">Direito</a>
+            </li>
+            <li>
+              <a href="#">Backend</a>
+            </li>
+            <li>
+              <a href="#">Frontend</a>
+            </li>
+            <li>
+              <a href="#">Inteligência Artificial</a>
+            </li>
+            <li>
+              <a href="#">Arquitetura</a>
+            </li>
+            <li>
+              <a href="#">Administração</a>
+            </li>
+            <li>
+              <a href="#">Ecomomia e Finanças</a>
+            </li>
+            <li>
+              <a href="#">Mobile</a>
+            </li>
+            <li>
+              <a href="#">Marketing</a>
+            </li>
+            <li>
+              <a href="#">User Experience</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer__bottom-bar">
+        <div className="container bottom-bar__container">
+          <p>© IBMEC - Todos os direitos reservados</p>
+          <nav>
+            <a href="#">Política de privacidade</a>
+            <a href="#">Código de Ética</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  );
+}
