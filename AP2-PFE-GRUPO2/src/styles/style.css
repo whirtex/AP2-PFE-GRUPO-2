@@ -645,3 +645,51 @@ ul {
     margin-left: 0;
   }
 }
+
+.header__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  line-height: 1; /* evita variação do button nativo */
+}
+
+/* largura idêntica para os dois botões */
+.header__actions .btn--entrar,
+.header__actions .btn--cadastre {
+  width: 160px; /* ajuste se quiser maior/menor */
+}
+
+/* opcional: no mobile, diminui um pouco */
+@media (max-width: 480px) {
+  .header__actions .btn--entrar,
+  .header__actions .btn--cadastre {
+    width: 140px;
+  }
+}
+
+.site-footer {
+  background: #ffffff;
+  color: var(--color-primary-light);
+}
+
+.site-footer .footer__col-title {
+  color: var(--color-primary-dark);
+}
+
+.site-footer a {
+  color: var(--color-primary-light);
+}
+.site-footer a:hover {
+  color: var(--color-primary-light);
+  opacity: 0.9;
+}
+
+/* barra de baixo */
+.footer__bottom-bar {
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+}

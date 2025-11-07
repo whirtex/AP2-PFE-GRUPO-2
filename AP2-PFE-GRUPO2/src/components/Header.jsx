@@ -1,10 +1,12 @@
+import logo from "../assets/img/logo-ibmec.svg";
+
 export default function Header({ onOpenLogin }) {
   return (
     <header className="site-header">
       <div className="header__top-bar" />
       <div className="container header__container">
         <a href="/" className="header__logo" aria-label="Logo Ibmec">
-          <img src="/img/logo-Ibmec.svg" alt="Logo Ibmec" />
+          <img src={logo} alt="Logo Ibmec" />
         </a>
 
         <nav className="header__nav" aria-label="navegação principal">

@@ -1,10 +1,16 @@
+import logo from "../assets/img/logo-ibmec.svg";
+import twitter from "../assets/icons/twitter.svg";
+import instagram from "../assets/icons/instagram.svg";
+import tiktok from "../assets/icons/tik-tok.svg";
+import linkedin from "../assets/icons/linkedin.svg";
+
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer__container">
         <div className="footer__col footer__col--brand">
           <a href="/" className="header__logo">
-            <img src="/img/logo-Ibmec.svg" alt="Logo Ibmec" />
+            <img src={logo} alt="Logo Ibmec" />
           </a>
           <p>
             Avenida Armando Lombardi, 949
@@ -15,16 +21,16 @@ export default function Footer() {
           <a href="#">Feedback do site</a>
           <div className="footer__social-links">
             <a href="https://x.com/Ibmec_oficial">
-              <img src="/img/icons/twitter.svg" alt="Twitter" />
+              <img src={twitter} alt="Twitter" />
             </a>
             <a href="#">
-              <img src="/img/icons/instagram.svg" alt="Instagram" />
+              <img src={instagram} alt="Instagram" />
             </a>
             <a href="#">
-              <img src="/img/icons/tik-tok.svg" alt="TikTok" />
+              <img src={tiktok} alt="TikTok" />
             </a>
             <a href="#">
-              <img src="/img/icons/linkedin.svg" alt="LinkedIn" />
+              <img src={linkedin} alt="LinkedIn" />
             </a>
           </div>
         </div>

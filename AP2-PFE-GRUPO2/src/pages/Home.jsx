@@ -1,3 +1,21 @@
+import icDireito from "../assets/icons/direito.svg";
+import icArquitetura from "../assets/icons/arquitetura.svg";
+import icIA from "../assets/icons/IA.svg";
+import icAdm from "../assets/icons/marketing e vendas.svg";
+import icEcon from "../assets/icons/economia e financas.svg";
+import icUX from "../assets/icons/UX.svg";
+import icMkt from "../assets/icons/marketing.svg";
+import icFront from "../assets/icons/front.svg";
+import icBack from "../assets/icons/back.svg";
+import icMobile from "../assets/icons/mobile.svg";
+
+import MarkZ from "../assets/img/MarkZuckerberg.png";
+import TimC from "../assets/img/TimCook.png";
+import AndyJ from "../assets/img/AndyJassy.png";
+import SatyaN from "../assets/img/SatyaNadella.png";
+import JoaoA from "../assets/img/JoaoAdibe.png";
+import DiegoB from "../assets/img/DiegoBarreto.png";
+
 export default function Home() {
   return (
     <>
@@ -28,72 +46,56 @@ export default function Home() {
       <section className="projetos" id="projetos">
         <div className="container">
           <h3>Explore nossos projetos</h3>
-
           <div className="grid-projetos">
             <div className="card">
-              <img src="/img/icons/direito.svg" alt="Direito" />
+              <img src={icDireito} alt="Direito" />
               <h4>Direito</h4>
             </div>
-
             <div className="card">
-              <img src="/img/icons/arquitetura.svg" alt="Arquitetura" />
+              <img src={icArquitetura} alt="Arquitetura" />
               <h4>Arquitetura</h4>
             </div>
-
             <div className="card">
-              <img src="/img/icons/IA.svg" alt="Inteligência Artificial" />
+              <img src={icIA} alt="Inteligência Artificial" />
               <h4>
                 Inteligência
                 <br />
                 Artificial
               </h4>
             </div>
-
             <div className="card">
-              <img
-                src="/img/icons/marketing e vendas.svg"
-                alt="Administração"
-              />
+              <img src={icAdm} alt="Administração" />
               <h4>Administração</h4>
             </div>
-
             <div className="card">
-              <img
-                src="/img/icons/economia e financas.svg"
-                alt="Economia e Finanças"
-              />
+              <img src={icEcon} alt="Economia e Finanças" />
               <h4>
-                Economia e<br />
-                Finanças
+                Economia
+                <br />e Finanças
               </h4>
             </div>
-
             <div className="card">
-              <img src="/img/icons/UX.svg" alt="User Experience" />
+              <img src={icUX} alt="User Experience" />
               <h4>
                 User
                 <br />
                 Experience
               </h4>
             </div>
-
             <div className="card">
-              <img src="/img/icons/marketing.svg" alt="Marketing" />
+              <img src={icMkt} alt="Marketing" />
               <h4>Marketing</h4>
             </div>
-
             <div className="card">
-              <img src="/img/icons/front.svg" alt="Front-end" />
+              <img src={icFront} alt="Front-end" />
               <h4>Front-end</h4>
             </div>
-
             <a href="#" className="card">
-              <img src="/img/icons/back.svg" alt="Back-end" />
+              <img src={icBack} alt="Back-end" />
               <h4>Back-end</h4>
             </a>
-
             <div className="card">
-              <img src="/img/icons/mobile.svg" alt="Mobile" />
+              <img src={icMobile} alt="Mobile" />
               <h4>Mobile</h4>
             </div>
           </div>
@@ -109,7 +111,7 @@ export default function Home() {
             {/* Depoimento 1 */}
             <div className="depo-card">
               <div className="title-row">
-                <img src="/img/icons/arquitetura.svg" alt="Arquitetura e UX" />
+                <img src={icArquitetura} alt="Arquitetura e UX" />
                 <h4>Arquitetura e UX</h4>
               </div>
               <p>
@@ -120,7 +122,7 @@ export default function Home() {
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
-                <img src="/img/TimCook.png" alt="autor" />
+                <img src={TimC} alt="autor" />
                 <div>
                   <strong>Tim Cook</strong>
                   <br />
@@ -136,7 +138,7 @@ export default function Home() {
             {/* Depoimento 2 */}
             <div className="depo-card">
               <div className="title-row">
-                <img src="/img/icons/back.svg" alt="Back-End" />
+                <img src={icBack} alt="Back-End" />
                 <h4>Back-End</h4>
               </div>
               <p>
@@ -147,7 +149,7 @@ export default function Home() {
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
-                <img src="/img/AndyJassy.png" alt="autor" />
+                <img src={AndyJ} alt="autor" />
                 <div>
                   <strong>Andy Jassy</strong>
                   <br />
@@ -163,7 +165,7 @@ export default function Home() {
             {/* Depoimento 3 */}
             <div className="depo-card">
               <div className="title-row">
-                <img src="/img/icons/front.svg" alt="Front-End" />
+                <img src={icFront} alt="Front-End" />
                 <h4>Front-End</h4>
               </div>
               <p>
@@ -174,7 +176,7 @@ export default function Home() {
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
-                <img src="/img/SatyaNadella.png" alt="autor" />
+                <img src={SatyaN} alt="autor" />
                 <div>
                   <strong>Satya Nadella</strong>
                   <br />
@@ -190,7 +192,7 @@ export default function Home() {
             {/* Depoimento 4 */}
             <div className="depo-card">
               <div className="title-row">
-                <img src="/img/icons/IA.svg" alt="Serviços de IA" />
+                <img src={icIA} alt="Serviços de IA" />
                 <h4>Serviços de IA</h4>
               </div>
               <p>
@@ -200,7 +202,7 @@ export default function Home() {
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
-                <img src="/img/MarkZuckerberg.png" alt="autor" />
+                <img src={MarkZ} alt="autor" />
                 <div>
                   <strong>Mark Zuckerberg</strong>
                   <br />
@@ -215,10 +217,7 @@ export default function Home() {
             {/* Depoimento 5 */}
             <div className="depo-card">
               <div className="title-row">
-                <img
-                  src="/img/icons/economia e financas.svg"
-                  alt="Economia e Marketing"
-                />
+                <img src={icEcon} alt="Economia e Marketing" />
                 <h4>Economia e Marketing</h4>
               </div>
               <p>
@@ -229,7 +228,7 @@ export default function Home() {
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
-                <img src="/img/JoaoAdibe.png" alt="autor" />
+                <img src={JoaoA} alt="autor" />
                 <div>
                   <strong>João Adibe</strong>
                   <br />
@@ -245,7 +244,7 @@ export default function Home() {
             {/* Depoimento 6 */}
             <div className="depo-card">
               <div className="title-row">
-                <img src="/img/icons/direito.svg" alt="Direito" />
+                <img src={icDireito} alt="Direito" />
                 <h4>Direito</h4>
               </div>
               <p>
@@ -256,7 +255,7 @@ export default function Home() {
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
-                <img src="/img/DiegoBarreto.png" alt="autor" />
+                <img src={DiegoB} alt="autor" />
                 <div>
                   <strong>Diego Barreto</strong>
                   <br />
