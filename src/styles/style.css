@@ -559,7 +559,7 @@ ul {
    5. RESPONSIVIDADE (MOBILE)
    ========================================================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .header__nav {
     display: none;
   }
@@ -664,7 +664,7 @@ ul {
 }
 
 /* opcional: no mobile, diminui um pouco */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .header__actions .btn--entrar,
   .header__actions .btn--cadastre {
     width: 140px;
