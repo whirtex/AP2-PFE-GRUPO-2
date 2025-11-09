@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import icDireito from "../assets/icons/direito.svg";
 import icArquitetura from "../assets/icons/arquitetura.svg";
 import icIA from "../assets/icons/IA.svg";
@@ -17,6 +19,12 @@ import JoaoA from "../assets/img/JoaoAdibe.png";
 import DiegoB from "../assets/img/DiegoBarreto.png";
 
 export default function Home() {
+  // opcional: marca o body com classe para escopar estilos
+  useEffect(() => {
+    document.body.classList.add("page-home");
+    return () => document.body.classList.remove("page-home");
+  }, []);
+
   return (
     <>
       {/* HERO */}
@@ -108,7 +116,7 @@ export default function Home() {
           <h3>Resultados reais dos nosso clientes</h3>
 
           <div className="grid-depoimentos">
-            {/* Depoimento 1 */}
+            {/* 1 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icArquitetura} alt="Arquitetura e UX" />
@@ -116,9 +124,7 @@ export default function Home() {
               </div>
               <p>
                 "É raro ver um time tão jovem dominar a intersecção entre
-                arquitetura e experiência. O conceito que eles apresentaram para
-                nossos novos espaços de varejo é a prova de que o futuro do
-                design está em boas mãos."
+                arquitetura e experiência..."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -135,17 +141,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Depoimento 2 */}
+            {/* 2 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icBack} alt="Back-End" />
                 <h4>Back-End</h4>
               </div>
               <p>
-                "A arquitetura de backend que esta equipe projetou para nós é
-                uma verdadeira obra de engenharia de software. Eles demonstraram
-                um domínio de escalabilidade e performance digno de nossos
-                melhores engenheiros."
+                "A arquitetura de backend que esta equipe projetou para nós..."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -162,7 +165,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Depoimento 3 */}
+            {/* 3 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icFront} alt="Front-End" />
@@ -170,9 +173,7 @@ export default function Home() {
               </div>
               <p>
                 "Demos a eles um desafio de interface com dados extremamente
-                complexos. A solução que entregaram não foi apenas funcional,
-                mas de uma clareza e elegância que elevaram o padrão do que
-                considerávamos possível."
+                complexos..."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -189,17 +190,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Depoimento 4 */}
+            {/* 4 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icIA} alt="Serviços de IA" />
                 <h4>Serviços de IA</h4>
               </div>
-              <p>
-                "A profundidade da equipe de IA é impressionante. Eles
-                desenvolveram uma solução preditiva que redefiniu nossa
-                abordagem de engajamento em escala global."
-              </p>
+              <p>"A profundidade da equipe de IA é impressionante..."</p>
               <div className="rating">★★★★★</div>
               <div className="autor">
                 <img src={MarkZ} alt="autor" />
@@ -214,7 +211,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Depoimento 5 */}
+            {/* 5 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icEcon} alt="Economia e Marketing" />
@@ -222,9 +219,7 @@ export default function Home() {
               </div>
               <p>
                 "A análise de mercado que recebemos foi de um nível de
-                senioridade impressionante. São talentos com uma visão
-                estratégica do consumidor brasileiro que muitas agências
-                experientes não possuem."
+                senioridade impressionante..."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -241,7 +236,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Depoimento 6 */}
+            {/* 6 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icDireito} alt="Direito" />
@@ -249,9 +244,7 @@ export default function Home() {
               </div>
               <p>
                 "Navegar no cenário regulatório brasileiro é um desafio
-                constante. A consultoria jurídica deste time nos forneceu
-                insights claros e a segurança necessária para avançar com um de
-                nossos projetos mais inovadores."
+                constante..."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
