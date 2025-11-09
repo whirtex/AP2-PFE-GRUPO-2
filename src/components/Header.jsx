@@ -1,32 +1,102 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/img/logo-ibmec.svg";
 
 export default function Header({ onOpenLogin }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Fecha ao trocar para desktop e com ESC
+  useEffect(() => {
+    function onResize() {
+      if (window.innerWidth > 600) setMenuOpen(false);
+    }
+    function onKeyDown(e) {
+      if (e.key === "Escape") setMenuOpen(false);
+    }
+    window.addEventListener("resize", onResize);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
+  // Evita scroll do body quando o menu está aberto
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className="site-header">
       <div className="header__top-bar" />
+
       <div className="container header__container">
-        <a href="/" className="header__logo" aria-label="Logo Ibmec">
+        <a
+          href="/"
+          className="header__logo"
+          aria-label="Logo Ibmec"
+          onClick={closeMenu}
+        >
           <img src={logo} alt="Logo Ibmec" />
         </a>
 
-        <nav className="header__nav" aria-label="navegação principal">
-          <ul>
+        {/* Botão hambúrguer (só aparece no mobile via CSS) */}
+        <button
+          type="button"
+          className="header__menu-toggle"
+          aria-controls="primary-navigation"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span className="burger" />
+        </button>
+
+        {/* Navegação */}
+        <nav
+          id="primary-navigation"
+          className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}
+          aria-label="navegação principal"
+        >
+          <ul onClick={closeMenu}>
             <li>
               <a href="/">Início</a>
             </li>
             <li>
               <a href="/quem-somos">Quem Somos</a>
             </li>
-
             <li>
               <a href="#projetos">Projetos</a>
             </li>
             <li>
               <a href="#depoimentos">Depoimentos</a>
             </li>
+
+            {/* Ações dentro do menu mobile */}
+            <li className="header__mobile-only">
+              <button
+                type="button"
+                className="btn btn--entrar"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenLogin?.();
+                  closeMenu();
+                }}
+              >
+                Entrar
+              </button>
+            </li>
+            <li className="header__mobile-only">
+              <Link to="/cadastro" className="btn btn--cadastre">
+                Cadastre-se
+              </Link>
+            </li>
           </ul>
         </nav>
 
+        {/* Ações no desktop (somem no mobile) */}
         <div className="header__actions">
           <button
             type="button"
@@ -35,11 +105,14 @@ export default function Header({ onOpenLogin }) {
           >
             Entrar
           </button>
-          <a href="/cadastro" className="btn btn--cadastre">
+          <Link to="/cadastro" className="btn btn--cadastre">
             Cadastre-se
-          </a>
+          </Link>
         </div>
       </div>
+
+      {/* Overlay atrás do menu mobile */}
+      {menuOpen && <div className="header__overlay" onClick={closeMenu} />}
     </header>
   );
 }
