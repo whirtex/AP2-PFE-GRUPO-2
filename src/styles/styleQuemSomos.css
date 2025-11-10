@@ -1,0 +1,93 @@
+:root {
+  --azul: #002b5c;
+  --amarelo: #f5b800;
+  --cinza-fundo: #f0f2f5;
+  --cor-texto: #222;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--azul);
+  color: var(--cor-texto);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ===== MAIN ===== */
+#quem-somos {
+  background-color: var(--cinza-fundo);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* GRID GERAL */
+.qs-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile */
+  gap: 1.5rem;
+}
+
+.qs-principal h2 {
+  font-size: 1.6rem;
+  color: var(--azul);
+  margin-bottom: 1rem;
+}
+.qs-principal p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Imagem */
+.qs-imagem img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Vídeo */
+.qs-video video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 16 / 9;
+}
+
+/* Texto secundário */
+.qs-secundario h3 {
+  font-size: 1.3rem;
+  color: var(--azul);
+  margin-bottom: 1rem;
+}
+.qs-secundario p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* ===== DESKTOP (>=900px) ===== */
+@media (min-width: 900px) {
+  .qs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "texto1 imagem"
+      "video texto2";
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .qs-principal { grid-area: texto1; }
+  .qs-imagem   { grid-area: imagem; }
+  .qs-video    { grid-area: video; }
+  .qs-secundario { grid-area: texto2; }
+
+  .qs-video video,
+  .qs-imagem img {
+    width: 100%;
+    height: auto;
+  }
+}
