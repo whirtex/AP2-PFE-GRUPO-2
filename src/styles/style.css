@@ -82,7 +82,7 @@ ul {
 }
 
 /* ==========================================================================
-   3. HEADER
+   3. HEADER  (MOBILE-FIRST)
    ========================================================================== */
 
 .site-header {
@@ -99,47 +99,75 @@ ul {
   background-color: var(--color-accent);
 }
 
+/* MOBILE BASE */
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 64px;
+  gap: 12px;
+  padding: 0 1rem;
 }
 
 .header__logo img {
-  height: 52px;
+  height: 40px;
+}
+
+/* Navegação como off-canvas no mobile */
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 80vw);
+  height: 100vh;
+  background: var(--color-bg-light);
+  border-left: 1px solid var(--color-border);
+  padding: 88px 16px 24px;
+  gap: 16px;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.header__nav--open {
+  transform: translateX(0);
+}
+.header__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
 
 .header__nav ul {
   display: flex;
-  gap: 32px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.header__nav a {
-  font-weight: 600;
-  padding: 8px 0;
+/* >>> Links do menu (não afetar os botões) */
+.header__nav li a:not(.btn) {
+  display: block;
+  padding: 12px 4px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+  border-bottom: 1px solid var(--color-border);
   position: relative;
 }
-.header__nav a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary-dark);
-  transition: width 0.3s ease;
-}
-.header__nav a:hover::after {
-  width: 100%;
-}
+.header__nav li a:not(.btn)::after {
+  content: none;
+} /* underline animado só no desktop */
 
-/* ===== AÇÕES DO HEADER ===== */
+/* AÇÕES DO HEADER */
 .header__actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+  display: none;
+} /* escondido no mobile */
+
 .btn--entrar {
   background-color: var(--color-bg-light);
   color: var(--color-primary-dark);
@@ -168,12 +196,33 @@ ul {
   color: var(--color-primary-dark);
 }
 
-/* ====== HAMBÚRGUER / OVERLAY (desktop: oculto) ====== */
-.header__menu-toggle {
-  display: none;
-} /* só mostra no mobile */
+.header__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  line-height: 1;
+}
+.header__actions .btn--entrar,
+.header__actions .btn--cadastre {
+  width: 160px;
+}
 
-/* Ícone hamburguer */
+/* HAMBÚRGUER (visível no mobile) */
+.header__menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--color-primary-dark);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
 .header__menu-toggle .burger {
   width: 24px;
   height: 2px;
@@ -197,7 +246,6 @@ ul {
 .header__menu-toggle .burger::after {
   top: 7px;
 }
-
 .header__menu-toggle[aria-expanded="true"] .burger {
   background: transparent;
 }
@@ -210,51 +258,80 @@ ul {
   transform: rotate(-45deg);
 }
 
-/* Overlay atrás do painel mobile */
-.header__overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 999; /* abaixo do nav (1000+) */
+.header__mobile-only {
+  display: block;
+}
+.header__mobile-only .btn {
+  width: 100%;
+  margin-top: 8px;
 }
 
-/* Itens que só devem existir no menu mobile (NÃO aparecem no desktop) */
-.header__mobile-only {
-  display: none;
+/* === Botões do menu mobile (tamanho idêntico) === */
+.header__nav .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px; /* altura única para ambos */
+  padding: 0 16px;
+  border-width: 2px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  line-height: 1;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.header__nav .btn + .btn {
+  margin-top: 12px;
+}
+.header__nav .btn--entrar {
+  background: #fff;
+  color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark);
+}
+.header__nav .btn--cadastre {
+  background: var(--color-primary-dark);
+  color: #fff !important;
+  border-color: var(--color-primary-dark);
+}
+.header__nav .btn--cadastre:hover {
+  background: #fff;
+  color: var(--color-primary-dark) !important;
 }
 
 /* ==========================================================================
-   HERO
+   HERO  (MOBILE-FIRST)
    ========================================================================== */
 
 .hero {
   background-color: var(--color-background);
   text-align: left;
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 .hero .container {
   max-width: 1200px;
 }
 .hero h2 {
-  font-size: clamp(2rem, 4vw, 2.4rem);
+  font-size: 1.8rem;
   color: var(--color-primary-light);
   line-height: 1.15;
-  margin-bottom: 2.25rem;
-  max-width: 30ch;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  text-align: center;
 }
 .search-box {
   display: flex;
-  justify-content: left;
-  align-items: left;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 .search-box input {
-  width: min(640px, 90%);
+  width: 100%;
   padding: 1rem 1.25rem;
   border: 2px solid #ccc;
   border-radius: 10px;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 .search-box button {
   background-color: var(--color-accent-hover);
@@ -262,7 +339,7 @@ ul {
   border: none;
   padding: 1rem 1.5rem;
   border-radius: 10px;
-  font-size: 1.0625rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 .popular {
@@ -272,6 +349,7 @@ ul {
 }
 .tags {
   margin-top: 0.75rem;
+  text-align: center;
 }
 .tags span {
   background-color: #e0e0e0;
@@ -282,10 +360,14 @@ ul {
   font-size: 1rem;
 }
 
-/* PROJETOS */
+/* ==========================================================================
+   PROJETOS  (MOBILE-FIRST)
+   ========================================================================== */
+
 .projetos {
   padding: 3rem 0;
   background-color: #fff;
+  scroll-margin-top: 140px;
 }
 .projetos h3 {
   text-align: center;
@@ -295,12 +377,14 @@ ul {
   font-weight: 700;
 }
 
+/* 1 coluna no mobile */
 .grid-projetos {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem 1.25rem;
   max-width: 1120px;
   margin: 0 auto;
+  justify-items: center;
 }
 
 .card {
@@ -310,10 +394,10 @@ ul {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14);
   padding: 16px;
   width: 100%;
-  max-width: 220px;
-  height: 120px;
+  max-width: 320px;
+  height: auto;
   display: grid;
-  grid-template-rows: 44px 1fr;
+  grid-template-rows: auto 1fr;
   align-content: start;
   justify-items: start;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -341,24 +425,24 @@ ul {
   hyphens: auto;
   max-width: 100%;
 }
-.projetos {
-  scroll-margin-top: 140px;
-}
 
-/* DEPOIMENTOS */
+/* ==========================================================================
+   DEPOIMENTOS  (MOBILE-FIRST)
+   ========================================================================== */
+
 .depoimentos {
   background-color: var(--color-primary-light);
-  color: white;
+  color: #fff;
   padding: 3rem 0;
+  scroll-margin-top: 140px;
 }
 .depoimentos h3 {
   text-align: center;
   margin-bottom: 50px;
 }
-
 .grid-depoimentos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
@@ -383,15 +467,15 @@ ul {
     hue-rotate(1deg) brightness(103%) contrast(102%);
 }
 .depo-card h4 {
-  color: #000000;
+  color: #000;
   font-weight: 700;
   font-size: 1rem;
   margin: 0;
 }
 .depo-card p {
-  line-height: 1.5;
+  line-height: 1.55;
   font-size: 0.95rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 .rating {
   color: #ffb81c;
@@ -399,25 +483,23 @@ ul {
 }
 .autor {
   display: flex;
-  align-items: center;
-  gap: 0.8rem;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 4px;
+  flex-direction: column;
 }
 .autor img {
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-}
-
-.grid-depoimentos {
-  align-items: stretch;
+  object-fit: cover;
+  margin-top: 2px;
 }
 .depo-card {
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   row-gap: 14px;
   height: 100%;
-}
-.depo-card p {
-  margin: 0;
-  line-height: 1.55;
 }
 .depo-card .rating {
   display: inline-flex;
@@ -426,64 +508,22 @@ ul {
   font-size: 1rem;
 }
 
-.depo-card .autor {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 4px;
-}
-.depo-card .autor img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 2px;
-}
-.depo-card .autor > :not(img) {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  line-height: 1.2;
-  gap: 1px;
-  margin-top: 2px;
-}
-.depo-card .autor > :not(img) strong {
-  font-weight: 800;
-  font-size: 1.05rem;
-  color: #0f1826;
-  line-height: 1.15;
-  margin: 0;
-}
-.depo-card .autor > :not(img) .cargo {
-  font-size: 0.95rem;
-  color: #5a6475;
-  margin: 0;
-}
-.depo-card .autor > :not(img) .data {
-  font-size: 0.9rem;
-  color: #7a8599;
-  margin: 0;
-}
-.depoimentos {
-  scroll-margin-top: 140px;
-}
-
 /* ==========================================================================
-   4. FOOTER (RODAPÉ)
+   4. FOOTER (MOBILE-FIRST)
    ========================================================================== */
 
 .site-footer {
-  background-color: var(--color-primary-dark);
-  color: var(--color-text-light);
+  background: #ffffff;
+  color: var(--color-primary-light);
   padding-top: 100px;
 }
-
 .footer__container {
   display: flex;
   justify-content: space-between;
   gap: 54px;
   padding-bottom: 10px;
   align-items: flex-start;
+  flex-direction: column;
 }
 .footer__col--brand p,
 .footer__col--brand > a {
@@ -533,7 +573,7 @@ ul {
   flex-grow: 2;
 }
 .footer__project-list {
-  column-count: 3;
+  column-count: 1;
   column-gap: 32px;
 }
 .footer__project-list li {
@@ -541,6 +581,7 @@ ul {
 }
 
 .footer__bottom-bar {
+  background: #ffffff;
   border-top: 1px solid var(--color-border);
   margin-top: 48px;
   padding: 32px;
@@ -551,244 +592,158 @@ ul {
   align-items: center;
   font-size: 0.875rem;
   color: var(--color-primary-light);
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
 }
 .bottom-bar__container a {
   color: var(--color-primary-light);
-  margin-left: 32px;
+  margin-left: 0;
 }
-.bottom-bar__container a:hover {
-  color: var(--color-primary-light);
+.bottom-bar__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* ==========================================================================
-   5. RESPONSIVIDADE (MOBILE <= 600px)
+   5. DESKTOP (≥ 601px)
    ========================================================================== */
 
-@media (max-width: 600px) {
-  /* Header mobile */
+@media (min-width: 601px) {
+  /* Header em linha, ações visíveis, hambúrguer oculto */
   .header__container {
-    flex-direction: row;
-    height: 64px;
-    gap: 12px;
-    padding: 0 1rem;
+    height: 80px;
+  }
+  .header__logo img {
+    height: 52px;
   }
   .header__menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 2px solid var(--color-primary-dark);
-    border-radius: 8px;
-    background: #fff;
-    cursor: pointer;
+    display: none;
   }
   .header__actions {
-    display: none;
-  } /* esconde os botões do desktop */
-
-  /* Painel lateral (off-canvas) */
-  .header__nav {
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: min(320px, 80vw);
-    height: 100vh;
-    background: var(--color-bg-light);
-    border-left: 1px solid var(--color-border);
-    padding: 88px 16px 24px;
-    gap: 16px;
-    z-index: 1000;
-    transform: translateX(100%);
-    transition: transform 0.28s ease;
-    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .header__nav--open {
-    transform: translateX(0);
   }
 
+  .header__nav {
+    position: static;
+    transform: none;
+    height: auto;
+    width: auto;
+    box-shadow: none;
+    padding: 0;
+    border: 0;
+    overflow: visible;
+    flex-direction: row;
+  }
   .header__nav ul {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    gap: 32px;
   }
 
-  .header__nav li a {
-    display: block;
-    padding: 12px 4px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--color-primary-dark);
-    border-bottom: 1px solid var(--color-border);
+  /* >>> Links do menu (desktop com underline animado) */
+  .header__nav li a:not(.btn) {
+    border-bottom: 0;
+    padding: 8px 0;
+    font-weight: 600;
+    position: relative;
   }
-  .header__nav li a::after {
-    content: none;
-  } /* desativa underline animado no mobile */
-
-  /* Itens exclusivos do menu mobile (ex.: Entrar/Cadastre-se) */
-  .header__mobile-only {
-    display: block;
+  .header__nav li a:not(.btn)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary-dark);
+    transition: width 0.3s ease;
   }
-  .header__mobile-only .btn {
+  .header__nav li a:not(.btn):hover::after {
     width: 100%;
-    margin-top: 8px;
   }
 
-  /* Logo menor */
-  .header__logo img {
-    height: 40px;
+  .header__mobile-only {
+    display: none;
   }
 
-  /* Seções já responsivas */
+  /* Hero maior */
   .hero {
-    padding: 3rem 0;
+    padding: 6rem 0;
   }
   .hero h2 {
-    font-size: 1.8rem;
-    text-align: center;
-    max-width: 100%;
+    font-size: clamp(2rem, 4vw, 2.4rem);
+    text-align: left;
+    max-width: 30ch;
   }
   .search-box {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
   }
   .search-box input {
-    width: 100%;
-    font-size: 1rem;
+    width: min(640px, 90%);
+    font-size: 1.125rem;
   }
   .search-box button {
-    font-size: 1rem;
+    font-size: 1.0625rem;
   }
   .tags {
-    text-align: center;
+    text-align: left;
   }
+
+  /* Projetos pode abrir para 2 colunas */
   .grid-projetos {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: stretch;
   }
   .card {
-    max-width: 320px;
-    width: 100%;
-    height: auto;
-    grid-template-rows: auto 1fr;
+    max-width: none;
+    height: 120px;
+    grid-template-rows: 44px 1fr;
   }
+
+  /* Depoimentos responsivos */
   .grid-depoimentos {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
-  .depo-card .autor {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+
+  /* Footer em linha */
   .footer__container {
-    flex-direction: column;
+    flex-direction: row;
   }
   .footer__project-list {
-    column-count: 1;
+    column-count: 2;
   }
   .bottom-bar__container {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    flex-direction: row;
+    text-align: left;
   }
   .bottom-bar__links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+    gap: 0;
   }
   .bottom-bar__container a {
-    margin-left: 0;
+    margin-left: 32px;
   }
 }
 
-/* Largura/altura idêntica dos botões do header (desktop) */
-.header__actions .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  padding: 0 18px;
-  font-weight: 700;
-  border-radius: 8px;
-  line-height: 1;
-}
-.header__actions .btn--entrar,
-.header__actions .btn--cadastre {
-  width: 160px;
-}
+/* ==========================================================================
+   6. LARGE DESKTOP (≥ 1024px)
+   ========================================================================== */
 
-/* Opcional: no mobile, se os botões do header reaparecerem por CSS externo */
-@media (max-width: 600px) {
-  .header__actions .btn--entrar,
-  .header__actions .btn--cadastre {
-    width: 140px;
-  }
-}
-
-/* Footer claro */
-.site-footer {
-  background: #ffffff;
-  color: var(--color-primary-light);
-}
-.site-footer .footer__col-title {
-  color: var(--color-primary-dark);
-}
-.site-footer a {
-  color: var(--color-primary-light);
-}
-.site-footer a:hover {
-  color: var(--color-primary-light);
-  opacity: 0.9;
-}
-.footer__bottom-bar {
-  background: #ffffff;
-  border-top: 1px solid var(--color-border);
-}
-/* === BOTÕES DO MENU MOBILE: iguais ao mock (<=600px) === */
-@media (max-width: 600px) {
-  /* links de navegação (não-botões) continuam finos com a linha */
-  .header__nav li a:not(.btn) {
-    display: block;
-    padding: 12px 4px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--color-primary-dark);
-    border-bottom: 1px solid var(--color-border);
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
   }
 
-  /* base para os dois botões */
-  .header__nav .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 48px; /* mesmo tamanho pros dois */
-    border-radius: 10px;
-    box-sizing: border-box;
-    margin-top: 12px;
-    line-height: 1;
+  /* Escolha: 3 colunas por padrão; troque para 5 se quiser */
+  .grid-projetos {
+    grid-template-columns: repeat(3, 1fr);
   }
+  /* .grid-projetos { grid-template-columns: repeat(5, 1fr); } */
 
-  /* ENTRAR: branco com borda azul */
-  .header__nav .btn--entrar {
-    background: #fff;
-    color: var(--color-primary-dark);
-    border: 2px solid var(--color-primary-dark);
-  }
-
-  /* CADASTRE-SE: azul com texto branco; no hover inverte */
-  .header__nav .btn--cadastre {
-    background: var(--color-primary-dark);
-    color: #fff;
-    border: 2px solid var(--color-primary-dark);
-  }
-  .header__nav .btn--cadastre:hover {
-    background: #fff;
-    color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
+  .footer__project-list {
+    column-count: 3;
   }
 }
