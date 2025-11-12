@@ -35,7 +35,7 @@ export default function ProjectsPage() {
               alt="Tela de código representando API de estoque"
             />
             <a href="#" className="project-card__btn" role="button">
-              Ver Projetos
+              Ver Projeto
             </a>
           </article>
 
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
               alt="Visual de dados e gráficos"
             />
             <a href="#" className="project-card__btn" role="button">
-              Ver Projetos
+              Ver Projeto
             </a>
           </article>
 
@@ -102,7 +102,7 @@ export default function ProjectsPage() {
               alt="Agenda e tarefas automatizadas"
             />
             <a href="#" className="project-card__btn" role="button">
-              Ver Projetos
+              Ver Projeto
             </a>
           </article>
 
@@ -118,7 +118,7 @@ export default function ProjectsPage() {
               alt="Integração com provedores de pagamento"
             />
             <a href="#" className="project-card__btn" role="button">
-              Ver Projetos
+              Ver Projeto
             </a>
           </article>
         </section>

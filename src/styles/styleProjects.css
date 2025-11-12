@@ -99,17 +99,26 @@
 }
 
 .project-card__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   max-width: 320px;
-  display: inline-block;
+  margin: 12px auto 0;
+
+  height: 44px;
+  padding: 0 16px;
+  font-size: 1rem;
+  line-height: 1;
+
   background: var(--amarelo);
   color: var(--azul);
   border: 0;
   border-radius: 10px;
-  padding: 10px 18px;
+  transition: all 0.2s;
+
   font-weight: 700;
-  transition: all 0.2s ease-in-out;
-  height: 40px;
 }
 .project-card__btn:hover {
   background: var(--azul);
