@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/img/logo-ibmec.svg";
+import logo from "../assets/img/logo-Ibmec.svg";
 import twitter from "../assets/icons/twitter.svg";
 import instagram from "../assets/icons/instagram.svg";
 import tiktok from "../assets/icons/tik-tok.svg";
