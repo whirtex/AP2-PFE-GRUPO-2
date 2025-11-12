@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/img/logo-ibmec.svg";
+import logo from "../assets/img/logo-Ibmec.svg";
 import "../styles/styleCadastro.css";
 
 function maskCNPJ(value) {
