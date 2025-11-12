@@ -1,0 +1,206 @@
+/* ===============================
+   PROJECTS — MOBILE-FIRST (até 600px)
+   =============================== */
+
+.projects {
+  --azul: #002856;
+  --azul-escuro: #012140;
+  --amarelo: #f5b800;
+  --page-bg: #f5f6f8;
+
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 24px 16px 32px; /* mobile */
+  background: transparent;
+}
+
+/* ===== Título ===== */
+.projects__title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.projects__title h1 {
+  color: var(--azul);
+  font-size: clamp(1.35rem, 5vw, 1.8rem); /* mobile suave */
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+.projects__title p {
+  color: #475569;
+  font-size: 1rem;
+}
+
+/* ===== Filtros (empilhados no mobile) ===== */
+.projects__filters {
+  display: flex;
+  flex-direction: column; /* empilha até 600 */
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 16px 0 24px;
+}
+.projects__filters select,
+.projects__filters input[type="search"] {
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #fff;
+  min-width: 100%; /* largura cheia no mobile */
+  outline: none;
+}
+.projects__filters select:focus,
+.projects__filters input[type="search"]:focus {
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(0, 40, 86, 0.12);
+}
+
+/* ===== Grid (1 col no mobile) ===== */
+.projects__grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr; /* base mobile */
+}
+
+/* ===== Card ===== */
+.project-card {
+  background: var(--azul-escuro);
+  color: #e8eef8;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+}
+
+.project-card__title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f3f6ff;
+}
+.project-card__campus {
+  margin: 0 0 12px;
+  font-size: 0.92rem;
+  color: #c6d3ea;
+}
+
+.project-card__thumb {
+  width: 100%;
+  height: 140px; /* mobile */
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 14px;
+}
+
+.project-card__btn {
+  width: 100%;
+  max-width: 320px;
+  display: inline-block;
+  background: var(--amarelo);
+  color: var(--azul);
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+  height: 40px;
+}
+.project-card__btn:hover {
+  background: var(--azul);
+  color: #fff;
+}
+
+/* ===== Ver mais ===== */
+.projects__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.projects__more-btn {
+  background: var(--amarelo);
+  color: var(--azul);
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 26px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+.projects__more-btn {
+  padding: 16px 32px;
+  font-size: 1.05rem;
+  min-width: 240px;
+}
+.projects__more-btn:hover {
+  background: var(--azul);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Linha decorativa */
+.linha-customizada {
+  border: none;
+  border-top: 1px solid var(--color-border, #d9d9d9);
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* =========================
+   ≥ 601px (tablet)
+   ========================= */
+@media (min-width: 601px) {
+  .projects {
+    padding: 32px 18px 40px;
+  }
+
+  .projects__filters {
+    flex-direction: row; /* vira em linha a partir de 601 */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .projects__filters select,
+  .projects__filters input[type="search"] {
+    min-width: 180px;
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .project-card__thumb {
+    height: 150px;
+  }
+}
+
+/* =========================
+   ≥ 900px (desktop)
+   ========================= */
+@media (min-width: 900px) {
+  .projects {
+    padding: 40px 20px 48px; /* desktop original */
+  }
+
+  .projects__title h1 {
+    font-size: 1.9rem; /* desktop original */
+  }
+
+  .projects__filters select,
+  .projects__filters input[type="search"] {
+    min-width: 220px; /* desktop original */
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* desktop original */
+  }
+}

@@ -1,4 +1,5 @@
 import "../styles/styleLogin.css";
+import logo from "../assets/img/logo-Ibmec.svg";
 
 export default function LoginModal({ open, onClose }) {
   const onOverlayClick = (e) => {
@@ -23,9 +24,16 @@ export default function LoginModal({ open, onClose }) {
         >
           &times;
         </button>
+
         <div className="logo">
-          <img src="/img/logo-Ibmec.svg" alt="ibmec" />
+          <img
+            src={logo}
+            alt="Ibmec"
+            className="login-modal__logo"
+            onError={() => console.warn("Falha ao carregar logo-ibmec.svg")}
+          />
         </div>
+
         <p className="title">Entre na sua conta</p>
 
         <form

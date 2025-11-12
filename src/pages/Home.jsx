@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import icDireito from "../assets/icons/direito.svg";
 import icArquitetura from "../assets/icons/arquitetura.svg";
@@ -98,10 +99,10 @@ export default function Home() {
               <img src={icFront} alt="Front-end" />
               <h4>Front-end</h4>
             </div>
-            <a href="#" className="card">
+            <Link to="/projetos/backend" className="card">
               <img src={icBack} alt="Back-end" />
               <h4>Back-end</h4>
-            </a>
+            </Link>
             <div className="card">
               <img src={icMobile} alt="Mobile" />
               <h4>Mobile</h4>
@@ -124,7 +125,9 @@ export default function Home() {
               </div>
               <p>
                 "É raro ver um time tão jovem dominar a intersecção entre
-                arquitetura e experiência..."
+                arquitetura e experiência. O conceito que eles apresentaram para
+                nossos novos espaços de varejo é a prova de que o futuro do
+                design está em boas mãos."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -148,7 +151,10 @@ export default function Home() {
                 <h4>Back-End</h4>
               </div>
               <p>
-                "A arquitetura de backend que esta equipe projetou para nós..."
+                "A arquitetura de backend que esta equipe projetou para nós é
+                uma verdadeira obra de engenharia de software. Eles demonstraram
+                um domínio de escalabilidade e performance digno de nossos
+                melhores engenheiros."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -173,7 +179,9 @@ export default function Home() {
               </div>
               <p>
                 "Demos a eles um desafio de interface com dados extremamente
-                complexos..."
+                complexos. A solução que entregaram não foi apenas funcional,
+                mas de uma clareza e elegância que elevaram o padrão do que
+                considerávamos possível."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -196,7 +204,11 @@ export default function Home() {
                 <img src={icIA} alt="Serviços de IA" />
                 <h4>Serviços de IA</h4>
               </div>
-              <p>"A profundidade da equipe de IA é impressionante..."</p>
+              <p>
+                "A profundidade da equipe de IA é impressionante. Eles
+                desenvolveram uma solução preditiva que redefiniu nossa
+                abordagem de engajamento em escala global."
+              </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
                 <img src={MarkZ} alt="autor" />
@@ -219,7 +231,9 @@ export default function Home() {
               </div>
               <p>
                 "A análise de mercado que recebemos foi de um nível de
-                senioridade impressionante..."
+                senioridade impressionante. São talentos com uma visão
+                estratégica do consumidor brasileiro que muitas agências
+                experientes não possuem."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">
@@ -244,7 +258,9 @@ export default function Home() {
               </div>
               <p>
                 "Navegar no cenário regulatório brasileiro é um desafio
-                constante..."
+                constante. A consultoria jurídica deste time nos forneceu
+                insights claros e a segurança necessária para avançar com um de
+                nossos projetos mais inovadores."
               </p>
               <div className="rating">★★★★★</div>
               <div className="autor">

@@ -266,6 +266,28 @@ ul {
   margin-top: 8px;
 }
 
+.header__nav .btn--entrar:hover,
+.header__nav .btn--entrar:active,
+.header__nav .btn--entrar:focus-visible {
+  background: var(--color-primary-dark);
+  color: #fff !important;
+  border-color: var(--color-primary-dark);
+}
+
+.header__nav .btn--cadastre:active,
+.header__nav .btn--cadastre:focus-visible {
+  background: #fff;
+  color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark);
+}
+
+/* melhora o toque no iOS/Android */
+.header__nav .btn {
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
 /* === Botões do menu mobile (tamanho idêntico) === */
 .header__nav .btn {
   display: inline-flex;
@@ -433,79 +455,84 @@ ul {
 .depoimentos {
   background-color: var(--color-primary-light);
   color: #fff;
-  padding: 3rem 0;
+  padding: 1rem 0; /* reduzido para caber melhor no mobile */
   scroll-margin-top: 140px;
 }
 .depoimentos h3 {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
 }
+
 .grid-depoimentos {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 8px;
 }
 
 .depo-card {
   background-color: #ffffff;
   color: #222;
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  row-gap: 6px;
+  height: 100%;
 }
+
 .depo-card .title-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.6rem;
+  gap: 0.45rem;
+  margin-bottom: 0.4rem;
 }
 .depo-card .title-row img {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
   display: block;
   filter: brightness(0) saturate(100%) invert(77%) sepia(62%) saturate(1500%)
     hue-rotate(1deg) brightness(103%) contrast(102%);
 }
+
 .depo-card h4 {
   color: #000;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
+
 .depo-card p {
-  line-height: 1.55;
-  font-size: 0.95rem;
+  line-height: 1.45;
+  font-size: 0.88rem;
   margin: 0;
 }
+
 .rating {
   color: #ffb81c;
-  margin-bottom: 0.5rem;
-}
-.autor {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 4px;
-  flex-direction: column;
-}
-.autor img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 2px;
-}
-.depo-card {
-  display: grid;
-  grid-template-rows: auto 1fr auto auto;
-  row-gap: 14px;
-  height: 100%;
+  margin-bottom: 0.35rem;
 }
 .depo-card .rating {
   display: inline-flex;
-  gap: 4px;
+  gap: 3px;
   align-self: end;
-  font-size: 1rem;
+  font-size: 0.88rem;
+}
+
+.autor {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 2px;
+  flex-direction: column;
+}
+.autor img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 0;
 }
 
 /* ==========================================================================
@@ -515,16 +542,18 @@ ul {
 .site-footer {
   background: #ffffff;
   color: var(--color-primary-light);
-  padding-top: 100px;
+  padding: 24px 0; /* mais compacto no topo */
 }
+
 .footer__container {
   display: flex;
-  justify-content: space-between;
-  gap: 54px;
-  padding-bottom: 10px;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
 }
+
+/* bloco marca */
 .footer__col--brand p,
 .footer__col--brand > a {
   margin-top: 29px;
@@ -548,20 +577,23 @@ ul {
   opacity: 0.8;
 }
 
+/* títulos das colunas */
 .footer__col-title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 32px;
-  margin-top: 50px;
+  font-size: 1rem; /* mobile: menor */
+  font-weight: 800; /* mais forte */
+  margin-bottom: 10px; /* compacto */
+  margin-top: 10px; /* compacto */
   text-transform: uppercase;
   color: var(--color-primary-dark);
+  letter-spacing: 0.02em;
 }
+
+/* listas */
 .footer__who-list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 12px; /* compacto */
 }
-
 .footer__col a {
   color: var(--color-primary-light);
 }
@@ -569,22 +601,57 @@ ul {
   color: var(--color-primary-light);
 }
 
+/* projetos em 2 colunas no mobile (visual sem contar como grid de layout) */
 .footer__col--projects {
-  flex-grow: 2;
+  width: 100%;
 }
 .footer__project-list {
-  column-count: 1;
-  column-gap: 32px;
+  column-count: 2;
+  column-gap: 24px;
 }
 .footer__project-list li {
-  padding-bottom: 25px;
+  break-inside: avoid;
+  padding-bottom: 10px; /* compacto */
 }
 
+/* ===== Acordeon (apenas mobile) ===== */
+.footer__section {
+  width: 100%;
+}
+.footer__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+  cursor: pointer;
+}
+.footer__chevron {
+  inline-size: 10px;
+  block-size: 10px;
+  border-right: 2px solid var(--color-primary-dark);
+  border-bottom: 2px solid var(--color-primary-dark);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.footer__list {
+  display: none;
+  padding: 8px 0 6px;
+}
+.footer__section.is-open .footer__list {
+  display: block;
+}
+.footer__section.is-open .footer__chevron {
+  transform: rotate(-135deg);
+}
+
+/* barra inferior */
 .footer__bottom-bar {
   background: #ffffff;
   border-top: 1px solid var(--color-border);
-  margin-top: 48px;
-  padding: 32px;
+  margin-top: 24px; /* menor para reduzir “respiro” */
+  padding: 20px;
 }
 .bottom-bar__container {
   display: flex;
@@ -593,7 +660,7 @@ ul {
   font-size: 0.875rem;
   color: var(--color-primary-light);
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   text-align: center;
 }
 .bottom-bar__container a {
@@ -603,7 +670,23 @@ ul {
 .bottom-bar__links {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+.footer__who-list,
+.footer__project-list {
+  padding: 6px 0 10px;
+}
+
+.footer__who-list li + li,
+.footer__project-list li + li {
+  margin-top: 10px; /* respiro entre linhas no toque */
+}
+
+.footer__who-list a,
+.footer__project-list a {
+  display: block; /* aumenta área clicável */
+  padding: 6px 0; /* toque mais fácil no mobile */
 }
 
 /* ==========================================================================
@@ -623,6 +706,15 @@ ul {
   }
   .header__actions {
     display: flex;
+    gap: 16px;
+  }
+  .header__actions .btn {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   .header__nav {
@@ -709,22 +801,97 @@ ul {
   }
 
   /* Footer em linha */
+  .site-footer {
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+
+  /* Vira GRID de 3 colunas bem distribuídas */
   .footer__container {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 260px 1fr 1.2fr; /* marca | O Ibmec | Projetos */
+    align-items: start;
+    gap: 28px 56px; /* linhas | colunas */
+    padding-bottom: 0;
+  }
+
+  /* Coluna da marca mais limpa */
+  .footer__col--brand p,
+  .footer__col--brand > a {
+    margin-top: 14px; /* estava grande */
+    line-height: 1.45;
+  }
+  .footer__social-links {
+    margin-top: 12px;
+    gap: 14px;
+  }
+
+  /* Títulos mais fortes e próximos da lista */
+  .footer__col-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    margin: 6px 0 12px 0; /* tira aquele vão enorme */
+    letter-spacing: 0.02em;
+  }
+
+  /* Listas mais compactas */
+  .footer__who-list {
+    gap: 10px;
   }
   .footer__project-list {
-    column-count: 2;
+    column-count: 3; /* 3 colunas dentro da área de Projetos */
+    column-gap: 32px;
+  }
+  .footer__project-list li {
+    padding-bottom: 8px;
+    break-inside: avoid;
+  }
+
+  /* “Acordeon” desativado no desktop (sempre aberto) */
+  .footer__toggle {
+    cursor: default;
+    padding: 0;
+    border: 0;
+  }
+  .footer__chevron {
+    display: none;
+  }
+  .footer__list {
+    display: block !important;
+  }
+
+  /* Barra de baixo mais próxima e compacta */
+  .footer__bottom-bar {
+    margin-top: 16px; /* antes estava muito distante */
+    padding: 18px 0;
   }
   .bottom-bar__container {
     flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
     text-align: left;
   }
   .bottom-bar__links {
     flex-direction: row;
-    gap: 0;
+    gap: 24px;
   }
   .bottom-bar__container a {
-    margin-left: 32px;
+    margin-left: 0;
+  }
+
+  .footer__who-list,
+  .footer__project-list {
+    padding: 0;
+  }
+
+  .footer__who-list li + li,
+  .footer__project-list li + li {
+    margin-top: 6px; /* volta a ficar mais juntinho */
+  }
+
+  .footer__who-list a,
+  .footer__project-list a {
+    padding: 0; /* sem “padding de toque” no desktop */
   }
 }
 
@@ -737,11 +904,9 @@ ul {
     max-width: 1200px;
   }
 
-  /* Escolha: 3 colunas por padrão; troque para 5 se quiser */
   .grid-projetos {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
-  /* .grid-projetos { grid-template-columns: repeat(5, 1fr); } */
 
   .footer__project-list {
     column-count: 3;

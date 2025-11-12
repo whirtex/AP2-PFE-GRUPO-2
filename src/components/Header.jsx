@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/img/logo-ibmec.svg";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/img/logo-Ibmec.svg";
 
 export default function Header({ onOpenLogin }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   // Fecha ao trocar para desktop e com ESC
   useEffect(() => {
@@ -67,12 +69,18 @@ export default function Header({ onOpenLogin }) {
             <li>
               <a href="/quem-somos">Quem Somos</a>
             </li>
-            <li>
-              <a href="#projetos">Projetos</a>
-            </li>
-            <li>
-              <a href="#depoimentos">Depoimentos</a>
-            </li>
+
+            {/* Só mostra na Home */}
+            {isHome && (
+              <>
+                <li>
+                  <a href="#projetos">Projetos</a>
+                </li>
+                <li>
+                  <a href="#depoimentos">Depoimentos</a>
+                </li>
+              </>
+            )}
 
             {/* Ações dentro do menu mobile */}
             <li className="header__mobile-only">
