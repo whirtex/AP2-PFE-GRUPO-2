@@ -7,7 +7,6 @@ export default function Header({ onOpenLogin }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  // Fecha ao trocar para desktop e com ESC
   useEffect(() => {
     function onResize() {
       if (window.innerWidth > 600) setMenuOpen(false);
@@ -23,7 +22,6 @@ export default function Header({ onOpenLogin }) {
     };
   }, []);
 
-  // Evita scroll do body quando o menu está aberto
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
@@ -35,16 +33,16 @@ export default function Header({ onOpenLogin }) {
       <div className="header__top-bar" />
 
       <div className="container header__container">
-        <a
-          href="/"
+        {/* Logo deve usar Link */}
+        <Link
+          to="/"
           className="header__logo"
           aria-label="Logo Ibmec"
           onClick={closeMenu}
         >
           <img src={logo} alt="Logo Ibmec" />
-        </a>
+        </Link>
 
-        {/* Botão hambúrguer (só aparece no mobile via CSS) */}
         <button
           type="button"
           className="header__menu-toggle"
@@ -56,7 +54,6 @@ export default function Header({ onOpenLogin }) {
           <span className="burger" />
         </button>
 
-        {/* Navegação */}
         <nav
           id="primary-navigation"
           className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}
@@ -64,13 +61,12 @@ export default function Header({ onOpenLogin }) {
         >
           <ul onClick={closeMenu}>
             <li>
-              <a href="/">Início</a>
+              <Link to="/">Início</Link>
             </li>
             <li>
-              <a href="/quem-somos">Quem Somos</a>
+              <Link to="/quem-somos">Quem Somos</Link>
             </li>
 
-            {/* Só mostra na Home */}
             {isHome && (
               <>
                 <li>
@@ -82,7 +78,6 @@ export default function Header({ onOpenLogin }) {
               </>
             )}
 
-            {/* Ações dentro do menu mobile */}
             <li className="header__mobile-only">
               <button
                 type="button"
@@ -104,7 +99,6 @@ export default function Header({ onOpenLogin }) {
           </ul>
         </nav>
 
-        {/* Ações no desktop (somem no mobile) */}
         <div className="header__actions">
           <button
             type="button"
@@ -119,7 +113,6 @@ export default function Header({ onOpenLogin }) {
         </div>
       </div>
 
-      {/* Overlay atrás do menu mobile */}
       {menuOpen && <div className="header__overlay" onClick={closeMenu} />}
     </header>
   );
