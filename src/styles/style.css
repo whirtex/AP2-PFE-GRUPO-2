@@ -806,7 +806,7 @@ ul {
     padding-bottom: 24px;
   }
 
-  /* Vira GRID de 3 colunas bem distribuídas */
+  /* Layout base do footer (desktop “normal”) */
   .footer__container {
     display: grid;
     grid-template-columns: 260px 1fr 1.2fr; /* marca | O Ibmec | Projetos */
@@ -818,7 +818,7 @@ ul {
   /* Coluna da marca mais limpa */
   .footer__col--brand p,
   .footer__col--brand > a {
-    margin-top: 14px; /* estava grande */
+    margin-top: 14px;
     line-height: 1.45;
   }
   .footer__social-links {
@@ -830,7 +830,7 @@ ul {
   .footer__col-title {
     font-size: 1.125rem;
     font-weight: 800;
-    margin: 6px 0 12px 0; /* tira aquele vão enorme */
+    margin: 6px 0 12px 0;
     letter-spacing: 0.02em;
   }
 
@@ -838,8 +838,11 @@ ul {
   .footer__who-list {
     gap: 10px;
   }
+
+  /* (ANTES era column-count. Mantemos aqui,
+     mas será sobrescrito no bloco ≥901px para um layout fixo) */
   .footer__project-list {
-    column-count: 3; /* 3 colunas dentro da área de Projetos */
+    column-count: 3;
     column-gap: 32px;
   }
   .footer__project-list li {
@@ -862,7 +865,7 @@ ul {
 
   /* Barra de baixo mais próxima e compacta */
   .footer__bottom-bar {
-    margin-top: 16px; /* antes estava muito distante */
+    margin-top: 16px;
     padding: 18px 0;
   }
   .bottom-bar__container {
@@ -886,12 +889,57 @@ ul {
 
   .footer__who-list li + li,
   .footer__project-list li + li {
-    margin-top: 6px; /* volta a ficar mais juntinho */
+    margin-top: 6px;
   }
 
   .footer__who-list a,
   .footer__project-list a {
-    padding: 0; /* sem “padding de toque” no desktop */
+    padding: 0;
+  }
+}
+
+/* ===== Footer TRAVADO/ESTÁVEL no desktop maior (sobrescreve o de cima) */
+@media (min-width: 901px) {
+  /* 3 colunas fixas: marca | O Ibmec | Projetos */
+  .footer__container {
+    display: grid;
+    grid-template-columns: 280px 260px 1fr; /* fixe as larguras */
+    align-items: start;
+    gap: 24px 48px;
+  }
+
+  /* "Projetos" como GRID estável (em vez de column-count) */
+  .footer__project-list {
+    column-count: initial !important;
+    column-gap: 0 !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 8px 24px;
+  }
+  .footer__project-list li {
+    break-inside: auto;
+    padding-bottom: 0;
+  }
+
+  /* "O Ibmec" também travado */
+  .footer__who-list {
+    display: grid;
+    grid-auto-rows: min-content;
+    gap: 10px;
+  }
+
+  /* Barra inferior consistente */
+  .bottom-bar__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: nowrap;
+  }
+  .bottom-bar__links {
+    display: flex;
+    gap: 24px;
   }
 }
 
@@ -908,7 +956,11 @@ ul {
     grid-template-columns: repeat(5, 1fr);
   }
 
+  /* Mantém o footer travado também no large desktop */
   .footer__project-list {
-    column-count: 3;
+    grid-template-columns: repeat(
+      3,
+      minmax(180px, 1fr)
+    ); /* um pouco mais largo */
   }
 }
