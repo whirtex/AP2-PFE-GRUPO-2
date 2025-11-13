@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/img/logo-Ibmec.svg";
 import "../styles/styleCadastro.css";
 
@@ -17,8 +17,7 @@ function maskCNPJ(value) {
   return `${p[0]}.${p[1]}.${p[2]}/${d.substring(8, 12)}-${d.substring(12, 14)}`;
 }
 
-export default function Cadastro() {
-  const nav = useNavigate();
+export default function Cadastro({ onOpenLogin }) {
   const formRef = useRef(null);
 
   const [form, setForm] = useState({
@@ -59,8 +58,7 @@ export default function Cadastro() {
       return;
     }
 
-    // aqui você chamaria sua API; por enquanto vamos só redirecionar
-    nav("/");
+    console.log("Form OK:", form);
   }
 
   return (
@@ -212,7 +210,7 @@ export default function Cadastro() {
           <button
             type="button"
             className="reg-btn reg-btn--primary"
-            onClick={() => nav("/")}
+            onClick={onOpenLogin}
           >
             Login
           </button>

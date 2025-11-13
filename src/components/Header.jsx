@@ -33,7 +33,6 @@ export default function Header({ onOpenLogin }) {
       <div className="header__top-bar" />
 
       <div className="container header__container">
-        {/* Logo deve usar Link */}
         <Link
           to="/"
           className="header__logo"

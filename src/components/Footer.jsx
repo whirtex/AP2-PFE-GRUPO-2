@@ -7,7 +7,6 @@ import linkedin from "../assets/icons/linkedin.svg";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  // controla os “acordeons” no mobile
   const [openWho, setOpenWho] = useState(false);
   const [openProj, setOpenProj] = useState(false);
 
@@ -48,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* seção O Ibmec (acordeon no mobile) */}
+        {/* seção O Ibmec  */}
         <div
           className={`footer__col footer__section ${openWho ? "is-open" : ""}`}
         >
@@ -77,7 +76,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* seção Projetos (acordeon no mobile) */}
+        {/* seção Projetos  */}
         <div
           className={`footer__col footer__col--projects footer__section ${
             openProj ? "is-open" : ""

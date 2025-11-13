@@ -111,6 +111,7 @@ ul {
 
 .header__logo img {
   height: 40px;
+  cursor: pointer;
 }
 
 /* Navegação como off-canvas no mobile */
@@ -363,6 +364,7 @@ ul {
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 .search-box button:hover {
   background: var(--color-primary-dark);

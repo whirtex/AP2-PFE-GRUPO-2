@@ -20,7 +20,10 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cadastro" element={<Cadastro />} />
+        <Route
+          path="/cadastro"
+          element={<Cadastro onOpenLogin={() => setLoginOpen(true)} />}
+        />
         <Route path="/quem-somos" element={<QuemSomos />} />
         <Route path="/projetos/backend" element={<ProjectsPage />} />
         <Route path="/projetos/backend/exemplo" element={<ProjetoExemplo />} />

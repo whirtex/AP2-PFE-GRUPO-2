@@ -87,6 +87,7 @@
   height: 48px;
   border-radius: 10px;
   font-weight: 700;
+  font-size: 14px;
   border: 2px solid transparent;
   cursor: pointer;
   transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease,
