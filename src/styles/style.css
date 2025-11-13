@@ -993,6 +993,7 @@ ul {
   .bottom-bar__links {
     display: flex;
     gap: 32px;
+    flex-direction: row;
   }
 
   .bottom-bar__container a {
