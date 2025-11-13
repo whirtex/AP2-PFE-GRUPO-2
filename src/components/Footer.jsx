@@ -130,10 +130,11 @@ export default function Footer() {
       <div className="footer__bottom-bar">
         <div className="container bottom-bar__container">
           <p>© IBMEC - Todos os direitos reservados</p>
-          <nav>
+
+          <div className="bottom-bar__links">
             <a href="#">Política de privacidade</a>
             <a href="#">Código de Ética</a>
-          </nav>
+          </div>
         </div>
       </div>
     </footer>
