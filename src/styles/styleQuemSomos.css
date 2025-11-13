@@ -14,7 +14,7 @@
 body {
   background-color: var(--azul);
   color: var(--cor-texto);
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 /* ===== MAIN ===== */
@@ -80,14 +80,34 @@ body {
     align-items: start;
   }
 
-  .qs-principal { grid-area: texto1; }
-  .qs-imagem   { grid-area: imagem; }
-  .qs-video    { grid-area: video; }
-  .qs-secundario { grid-area: texto2; }
+  .qs-principal {
+    grid-area: texto1;
+  }
+  .qs-imagem {
+    grid-area: imagem;
+  }
+  .qs-video {
+    grid-area: video;
+  }
+  .qs-secundario {
+    grid-area: texto2;
+  }
 
   .qs-video video,
   .qs-imagem img {
     width: 100%;
     height: auto;
+  }
+
+  .qs-imagem {
+    max-width: clamp(280px, 42vw, 520px);
+    margin: 0 auto;
+  }
+
+  .qs-imagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
 }
