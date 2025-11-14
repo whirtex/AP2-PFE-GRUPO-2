@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo-Ibmec.svg";
 
 export default function Header({ onOpenLogin }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const navigate = useNavigate();
 
-  // Fecha o menu ao aumentar a tela ou esc
   useEffect(() => {
     function onResize() {
       if (window.innerWidth > 600) setMenuOpen(false);
@@ -23,12 +22,25 @@ export default function Header({ onOpenLogin }) {
     };
   }, []);
 
-  //traar e destravar o sroll
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+
+  // 👇 função que cuida de ir pra seção certa
+  const handleSectionClick = (sectionId) => {
+    if (location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      closeMenu();
+    } else {
+      navigate("/", { state: { scrollTo: sectionId } });
+      closeMenu();
+    }
+  };
 
   return (
     <header className="site-header">
@@ -68,16 +80,29 @@ export default function Header({ onOpenLogin }) {
               <Link to="/quem-somos">Quem Somos</Link>
             </li>
 
-            {isHome && (
-              <>
-                <li>
-                  <a href="#projetos">Projetos</a>
-                </li>
-                <li>
-                  <a href="#depoimentos">Depoimentos</a>
-                </li>
-              </>
-            )}
+            {/* 🍝 Projetos e Depoimentos com scroll inteligente */}
+            <li>
+              <a
+                href="#projetos"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick("projetos");
+                }}
+              >
+                Projetos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#depoimentos"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick("depoimentos");
+                }}
+              >
+                Depoimentos
+              </a>
+            </li>
 
             <li className="header__mobile-only">
               <button

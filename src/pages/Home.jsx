@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import icDireito from "../assets/icons/direito.svg";
 import icArquitetura from "../assets/icons/arquitetura.svg";
@@ -20,10 +20,20 @@ import JoaoA from "../assets/img/JoaoAdibe.png";
 import DiegoB from "../assets/img/DiegoBarreto.png";
 
 export default function Home() {
+  const location = useLocation();
+
+  // Se veio de outra página com { state: { scrollTo: "projetos" | "depoimentos" } }
   useEffect(() => {
-    document.body.classList.add("page-home");
-    return () => document.body.classList.remove("page-home");
-  }, []);
+    const scrollTo = location.state?.scrollTo;
+    if (scrollTo) {
+      const el = document.getElementById(scrollTo);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 0);
+      }
+    }
+  }, [location.state]);
 
   return (
     <>
