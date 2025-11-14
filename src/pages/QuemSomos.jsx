@@ -30,16 +30,6 @@ export default function QuemSomos() {
           <img src={equipeImg} alt="Equipe trabalhando em projeto" />
         </div>
 
-        {/* Vídeo */}
-        <div className="qs-video">
-          <video
-            src={ibmecVideo}
-            controls
-            title="Depoimento Ibmec"
-            preload="metadata"
-          />
-        </div>
-
         {/* Texto secundário */}
         <div className="qs-secundario">
           <h3>O Projeto: A Ponte para o Futuro</h3>
@@ -55,6 +45,16 @@ export default function QuemSomos() {
             devem ficar no papel, e aqui conectamos empresas a soluções
             criativas e aos talentos que irão liderar o futuro.”
           </p>
+        </div>
+
+        {/* Vídeo */}
+        <div className="qs-video">
+          <video
+            src={ibmecVideo}
+            controls
+            title="Depoimento Ibmec"
+            preload="metadata"
+          />
         </div>
       </section>
     </main>
