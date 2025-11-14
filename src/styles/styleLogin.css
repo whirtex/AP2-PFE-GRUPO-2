@@ -23,7 +23,6 @@
   visibility: visible;
 }
 
-/* MODAL DE LOGIN */
 .login-modal {
   background-color: white;
   border-radius: 8px;
@@ -34,21 +33,19 @@
   position: relative;
 }
 
-/* ---- LOGO ---- */
 .login-modal .logo {
-  display: flex; /* centraliza com segurança */
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
 
 .login-modal__logo {
-  width: 150px; /* ajuste fino (120–180px) */
+  width: 150px;
   height: auto;
   display: block;
 }
 
-/* (opcional caso tenha título em texto no lugar do svg) */
 .login-modal .logo h1 {
   color: #003366;
   font-size: 36px;
@@ -127,8 +124,6 @@
   color: #333;
 }
 
-/* Fallback antigo (pode remover, mas não atrapalha):
-   Mantém compatibilidade se esquecer de usar a classe login-modal__logo */
 .login-modal .logo img {
   height: 40px;
   margin: 0 auto;

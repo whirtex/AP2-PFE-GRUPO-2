@@ -2,6 +2,7 @@ import "../styles/styleLogin.css";
 import logo from "../assets/img/logo-Ibmec.svg";
 
 export default function LoginModal({ open, onClose }) {
+  // fecha se clicar fora do conteudo
   const onOverlayClick = (e) => {
     if (e.target === e.currentTarget) onClose();
   };

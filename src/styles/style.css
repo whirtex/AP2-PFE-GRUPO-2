@@ -1,12 +1,10 @@
-/* ==========================================================================
-   1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS
-   ========================================================================== */
+/* CONFIGURAÇÕES GLOBAIS E VARIÁVEIS */
 
 :root {
-  --color-primary-dark: #003366; /* Azul principal */
-  --color-primary-light: #002555; /* Azul mais escuro */
+  --color-primary-dark: #003366;
+  --color-primary-light: #002555;
   --color-primary-extra-light: #2a548f;
-  --color-accent: #ffb81c; /* Amarelo Ibmec */
+  --color-accent: #ffb81c;
   --color-accent-hover: #eaa90f;
   --color-text-dark: #333333;
   --color-text-light: #f5f5f5;
@@ -54,9 +52,7 @@ ul {
   list-style: none;
 }
 
-/* ==========================================================================
-   2. CLASSES UTILITÁRIAS E COMPONENTES GERAIS
-   ========================================================================== */
+/* CLASSES UTILITÁRIAS E COMPONENTES GERAIS */
 
 .container {
   max-width: 1200px;
@@ -81,9 +77,7 @@ ul {
   transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   3. HEADER  (MOBILE-FIRST)
-   ========================================================================== */
+/* HEADER  */
 
 .site-header {
   background-color: var(--color-bg-light);
@@ -99,7 +93,6 @@ ul {
   background-color: var(--color-accent);
 }
 
-/* MOBILE BASE */
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -114,7 +107,6 @@ ul {
   cursor: pointer;
 }
 
-/* Navegação como off-canvas no mobile */
 .header__nav {
   display: flex;
   flex-direction: column;
@@ -150,7 +142,6 @@ ul {
   gap: 8px;
 }
 
-/* >>> Links do menu (não afetar os botões) */
 .header__nav li a:not(.btn) {
   display: block;
   padding: 12px 4px;
@@ -162,12 +153,11 @@ ul {
 }
 .header__nav li a:not(.btn)::after {
   content: none;
-} /* underline animado só no desktop */
+}
 
-/* AÇÕES DO HEADER */
 .header__actions {
   display: none;
-} /* escondido no mobile */
+}
 
 .btn--entrar {
   background-color: var(--color-bg-light);
@@ -212,7 +202,7 @@ ul {
   width: 160px;
 }
 
-/* HAMBÚRGUER (visível no mobile) */
+/* HAMBÚRGUER  */
 .header__menu-toggle {
   display: inline-flex;
   align-items: center;
@@ -282,20 +272,18 @@ ul {
   border-color: var(--color-primary-dark);
 }
 
-/* melhora o toque no iOS/Android */
 .header__nav .btn {
   -webkit-tap-highlight-color: transparent;
   transition: background-color 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
 }
 
-/* === Botões do menu mobile (tamanho idêntico) === */
 .header__nav .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 52px; /* altura única para ambos */
+  height: 52px;
   padding: 0 16px;
   border-width: 2px;
   border-radius: 10px;
@@ -322,9 +310,7 @@ ul {
   color: var(--color-primary-dark) !important;
 }
 
-/* ==========================================================================
-   HERO  (MOBILE-FIRST)
-   ========================================================================== */
+/* HERO   */
 
 .hero {
   background-color: var(--color-background);
@@ -389,9 +375,7 @@ ul {
   font-size: 1rem;
 }
 
-/* ==========================================================================
-   PROJETOS  (MOBILE-FIRST)
-   ========================================================================== */
+/* PROJETOS  */
 
 .projetos {
   padding: 3rem 0;
@@ -406,7 +390,6 @@ ul {
   font-weight: 700;
 }
 
-/* 1 coluna no mobile */
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr;
@@ -455,9 +438,7 @@ ul {
   max-width: 100%;
 }
 
-/* ==========================================================================
-   DEPOIMENTOS  (MOBILE-FIRST + CARROSSEL SÓ NO MOBILE)
-   ========================================================================== */
+/* DEPOIMENTOS  */
 
 .depoimentos {
   background-color: var(--color-primary-light);
@@ -472,20 +453,20 @@ ul {
   font-size: 1.1rem;
 }
 
-/* --- MOBILE: carrossel horizontal --- */
+/*  carrossel  */
 .depoimentos .grid-depoimentos {
   display: grid;
-  grid-auto-flow: column; /* carrossel em colunas */
-  grid-auto-columns: 88%; /* cada card ≈ 88% da largura */
+  grid-auto-flow: column;
+  grid-auto-columns: 88%;
   gap: 12px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   padding: 8px 0 12px;
-  scrollbar-width: none; /* Firefox: esconde barra */
+  scrollbar-width: none;
 }
 .depoimentos .grid-depoimentos::-webkit-scrollbar {
-  display: none; /* WebKit: esconde barra */
+  display: none;
 }
 
 .depoimentos .depo-card {
@@ -552,14 +533,12 @@ ul {
   margin-top: 0;
 }
 
-/* ==========================================================================
-   4. FOOTER (MOBILE-FIRST)
-   ========================================================================== */
+/* FOOTER  */
 
 .site-footer {
   background: #ffffff;
   color: var(--color-primary-light);
-  padding: 24px 0; /* mais compacto no topo */
+  padding: 24px 0;
 }
 
 .footer__container {
@@ -570,7 +549,6 @@ ul {
   padding-bottom: 16px;
 }
 
-/* bloco marca */
 .footer__col--brand p,
 .footer__col--brand > a {
   margin-top: 29px;
@@ -594,22 +572,20 @@ ul {
   opacity: 0.8;
 }
 
-/* títulos das colunas */
 .footer__col-title {
-  font-size: 1rem; /* mobile: menor */
-  font-weight: 800; /* mais forte */
-  margin-bottom: 10px; /* compacto */
-  margin-top: 10px; /* compacto */
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  margin-top: 10px;
   text-transform: uppercase;
   color: var(--color-primary-dark);
   letter-spacing: 0.02em;
 }
 
-/* listas */
 .footer__who-list {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* compacto */
+  gap: 12px;
 }
 .footer__col a {
   color: var(--color-primary-light);
@@ -618,7 +594,6 @@ ul {
   color: var(--color-primary-light);
 }
 
-/* projetos em 2 colunas no mobile (visual sem contar como grid de layout) */
 .footer__col--projects {
   width: 100%;
 }
@@ -628,10 +603,9 @@ ul {
 }
 .footer__project-list li {
   break-inside: avoid;
-  padding-bottom: 10px; /* compacto */
+  padding-bottom: 10px;
 }
 
-/* ===== Acordeon (apenas mobile) ===== */
 .footer__section {
   width: 100%;
 }
@@ -663,11 +637,10 @@ ul {
   transform: rotate(-135deg);
 }
 
-/* barra inferior */
 .footer__bottom-bar {
   background: #ffffff;
   border-top: 1px solid var(--color-border);
-  margin-top: 24px; /* menor para reduzir “respiro” */
+  margin-top: 24px;
   padding: 20px;
 }
 .bottom-bar__container {
@@ -697,21 +670,18 @@ ul {
 
 .footer__who-list li + li,
 .footer__project-list li + li {
-  margin-top: 10px; /* respiro entre linhas no toque */
+  margin-top: 10px;
 }
 
 .footer__who-list a,
 .footer__project-list a {
-  display: block; /* aumenta área clicável */
-  padding: 6px 0; /* toque mais fácil no mobile */
+  display: block;
+  padding: 6px 0;
 }
 
-/* ==========================================================================
-   5. DESKTOP (≥ 601px)
-   ========================================================================== */
+/* RESPONSIVIDADE */
 
 @media (min-width: 601px) {
-  /* Header em linha, ações visíveis, hambúrguer oculto */
   .header__container {
     height: 80px;
   }
@@ -751,7 +721,6 @@ ul {
     gap: 32px;
   }
 
-  /* >>> Links do menu (desktop com underline animado) */
   .header__nav li a:not(.btn) {
     border-bottom: 0;
     padding: 8px 0;
@@ -776,7 +745,6 @@ ul {
     display: none;
   }
 
-  /* Hero maior */
   .hero {
     padding: 6rem 0;
   }
@@ -801,7 +769,6 @@ ul {
     text-align: left;
   }
 
-  /* Projetos pode abrir para 2 colunas */
   .grid-projetos {
     grid-template-columns: repeat(2, 1fr);
     justify-items: stretch;
@@ -812,7 +779,6 @@ ul {
     grid-template-rows: 44px 1fr;
   }
 
-  /* Depoimentos – desktop */
   .depoimentos {
     padding: 2rem 0;
   }
@@ -823,13 +789,13 @@ ul {
   }
 
   .depoimentos .grid-depoimentos {
-    display: grid; /* grid normal */
-    grid-auto-flow: row; /* cancela o "column" */
+    display: grid;
+    grid-auto-flow: row;
     grid-auto-columns: auto;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 16px 20px;
-    overflow: visible; /* sem scroll lateral */
-    scroll-snap-type: none; /* desliga snap */
+    overflow: visible;
+    scroll-snap-type: none;
   }
 
   .depoimentos .depo-card {
@@ -851,35 +817,30 @@ ul {
   }
 
   .grid-depoimentos {
-    display: grid; /* volta a ser grid */
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(320px, 1fr)
-    ); /* 2 ou 3 colunas responsivas */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 16px 20px;
-    overflow: visible; /* sem rolagem lateral */
-    scroll-snap-type: none; /* desliga o snap */
+    overflow: visible;
+    scroll-snap-type: none;
   }
 
   .depoimentos .depo-card {
-    flex: initial; /* reseta o flex do carrossel */
+    flex: initial;
     max-width: none;
     height: 100%;
     scroll-snap-align: initial;
     scroll-margin-left: 0;
   }
 
-  /* se quiser deixar o autor em linha no desktop */
   .depoimentos .autor {
     flex-direction: row;
     align-items: center;
   }
 
-  /* Footer em linha */
   .site-footer {
     padding-top: 32px;
     padding-bottom: 24px;
-    background: #ffffff; /* mantém o fundo branco do layout novo */
+    background: #ffffff;
   }
 
   .footer__container {
@@ -890,7 +851,6 @@ ul {
     padding-bottom: 10px;
   }
 
-  /* coluna da marca */
   .footer__col--brand p,
   .footer__col--brand > a {
     margin-top: 29px;
@@ -916,7 +876,6 @@ ul {
     opacity: 0.8;
   }
 
-  /* títulos "O IBMEC" e "PROJETOS" */
   .footer__col-title {
     font-size: 16px;
     font-weight: 700;
@@ -926,7 +885,6 @@ ul {
     color: var(--color-primary-dark);
   }
 
-  /* lista O IBMEC em coluna única */
   .footer__who-list {
     display: flex;
     flex-direction: column;
@@ -942,12 +900,10 @@ ul {
     color: var(--color-primary-light);
   }
 
-  /* coluna de projetos ocupa mais espaço */
   .footer__col--projects {
     flex-grow: 2;
   }
 
-  /* PROJETOS em 3 colunas, igual ao código antigo */
   .footer__project-list {
     column-count: 3;
     column-gap: 32px;
@@ -960,7 +916,6 @@ ul {
     break-inside: avoid;
   }
 
-  /* desliga o comportamento de acordeon no desktop */
   .footer__toggle {
     cursor: default;
     padding: 0;
@@ -973,7 +928,6 @@ ul {
     display: block !important;
   }
 
-  /* barra inferior */
   .footer__bottom-bar {
     border-top: 1px solid var(--color-border);
     margin-top: 48px;
@@ -991,7 +945,6 @@ ul {
     text-align: left;
   }
 
-  /* se estiver usando .bottom-bar__links, deixamos em linha */
   .bottom-bar__links {
     display: flex;
     gap: 32px;
@@ -1000,7 +953,7 @@ ul {
 
   .bottom-bar__container a {
     color: var(--color-primary-light);
-    margin-left: 0; /* espaçamento vem do gap acima */
+    margin-left: 0;
   }
 
   .bottom-bar__container a:hover {
@@ -1008,17 +961,14 @@ ul {
   }
 }
 
-/* ===== Footer TRAVADO/ESTÁVEL no desktop maior (sobrescreve o de cima) */
 @media (min-width: 901px) {
-  /* 3 colunas fixas: marca | O Ibmec | Projetos */
   .footer__container {
     display: grid;
-    grid-template-columns: 280px 260px 1fr; /* fixe as larguras */
+    grid-template-columns: 280px 260px 1fr;
     align-items: start;
     gap: 24px 48px;
   }
 
-  /* "Projetos" como GRID estável (em vez de column-count) */
   .footer__project-list {
     column-count: initial !important;
     column-gap: 0 !important;
@@ -1032,14 +982,12 @@ ul {
     padding-bottom: 0;
   }
 
-  /* "O Ibmec" também travado */
   .footer__who-list {
     display: grid;
     grid-auto-rows: min-content;
     gap: 10px;
   }
 
-  /* Barra inferior consistente */
   .bottom-bar__container {
     flex-direction: row;
     justify-content: space-between;
@@ -1053,10 +1001,6 @@ ul {
   }
 }
 
-/* ==========================================================================
-   6. LARGE DESKTOP (≥ 1024px)
-   ========================================================================== */
-
 @media (min-width: 1024px) {
   .container {
     max-width: 1200px;
@@ -1066,11 +1010,7 @@ ul {
     grid-template-columns: repeat(5, 1fr);
   }
 
-  /* Mantém o footer travado também no large desktop */
   .footer__project-list {
-    grid-template-columns: repeat(
-      3,
-      minmax(180px, 1fr)
-    ); /* um pouco mais largo */
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
   }
 }

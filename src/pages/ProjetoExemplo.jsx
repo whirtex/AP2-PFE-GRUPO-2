@@ -9,7 +9,6 @@ export default function ProjetoExemplo() {
       {/* MAIN */}
       <main className="main-content">
         <section className="project-container">
-          {/* Lado Esquerdo */}
           <div className="project-info">
             <h1>Sistema de Agendamento de Tarefas</h1>
 
@@ -71,7 +70,6 @@ export default function ProjetoExemplo() {
               </div>
             </aside>
 
-            {/* Botões embaixo */}
             <div className="project-actions">
               <a className="btn btn--primary" target="_blank">
                 GitHub
@@ -82,7 +80,6 @@ export default function ProjetoExemplo() {
             </div>
           </div>
 
-          {/* Lado Direito */}
           <figure>
             <img src={Projeto4} alt="Preview do sistema de agendamento" />
           </figure>

@@ -17,7 +17,7 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ===== MAIN ===== */
+/*  MAIN  */
 #quem-somos {
   background-color: var(--cinza-fundo);
   max-width: 1200px;
@@ -28,7 +28,7 @@ body {
 /* GRID GERAL */
 .qs-container {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile */
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
@@ -42,14 +42,12 @@ body {
   line-height: 1.6;
 }
 
-/* Imagem */
 .qs-imagem img {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Vídeo */
 .qs-video video {
   width: 100%;
   border-radius: 10px;
@@ -57,7 +55,6 @@ body {
   aspect-ratio: 16 / 9;
 }
 
-/* Texto secundário */
 .qs-secundario h3 {
   font-size: 1.3rem;
   color: var(--azul);
@@ -68,7 +65,7 @@ body {
   line-height: 1.6;
 }
 
-/* ===== DESKTOP (>=900px) ===== */
+/*  RESPONSIVIDADE  */
 @media (min-width: 900px) {
   .qs-container {
     display: grid;

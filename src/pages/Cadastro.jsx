@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/img/logo-Ibmec.svg";
 import "../styles/styleCadastro.css";
 
+//aplica a mascara de CNPJ
 function maskCNPJ(value) {
   const d = (value || "").replace(/\D/g, "").slice(0, 14);
   const p = [];
@@ -46,6 +47,7 @@ export default function Cadastro({ onOpenLogin }) {
     e.target.setCustomValidity("");
   }
 
+  // submit com valdiacao do html
   function onSubmit(e) {
     e.preventDefault();
     const formEl = formRef.current;
@@ -73,6 +75,7 @@ export default function Cadastro({ onOpenLogin }) {
         </div>
 
         <form ref={formRef} className="reg-form" noValidate onSubmit={onSubmit}>
+          {/* Campo nome com validação  */}
           <div className="form-group">
             <input
               id="nome"
@@ -90,6 +93,7 @@ export default function Cadastro({ onOpenLogin }) {
             />
           </div>
 
+          {/* Campo email com validação*/}
           <div className="form-group">
             <input
               id="email"
@@ -106,6 +110,7 @@ export default function Cadastro({ onOpenLogin }) {
             />
           </div>
 
+          {/* Campo CNPJ com máscara aplicada */}
           <div className="form-group">
             <input
               id="cnpj"
@@ -122,6 +127,7 @@ export default function Cadastro({ onOpenLogin }) {
             />
           </div>
 
+          {/* Campo senha com requisitos mínimos */}
           <div className="form-group">
             <input
               id="senha"
@@ -138,6 +144,7 @@ export default function Cadastro({ onOpenLogin }) {
             />
           </div>
 
+          {/* Selects obrigatórios */}
           <div className="form-group">
             <select
               id="porte"

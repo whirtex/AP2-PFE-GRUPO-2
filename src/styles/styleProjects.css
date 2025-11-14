@@ -1,7 +1,3 @@
-/* ===============================
-   PROJECTS — MOBILE-FIRST (até 600px)
-   =============================== */
-
 .projects {
   --azul: #002856;
   --azul-escuro: #012140;
@@ -10,18 +6,17 @@
 
   max-width: 1150px;
   margin: 0 auto;
-  padding: 24px 16px 32px; /* mobile */
+  padding: 24px 16px 32px;
   background: transparent;
 }
 
-/* ===== Título ===== */
 .projects__title {
   text-align: center;
   margin-bottom: 24px;
 }
 .projects__title h1 {
   color: var(--azul);
-  font-size: clamp(1.35rem, 5vw, 1.8rem); /* mobile suave */
+  font-size: clamp(1.35rem, 5vw, 1.8rem);
   margin: 0 0 8px;
   font-weight: 700;
 }
@@ -30,10 +25,9 @@
   font-size: 1rem;
 }
 
-/* ===== Filtros (empilhados no mobile) ===== */
 .projects__filters {
   display: flex;
-  flex-direction: column; /* empilha até 600 */
+  flex-direction: column;
   gap: 10px;
   justify-content: center;
   align-items: stretch;
@@ -46,7 +40,7 @@
   border-radius: 10px;
   font-size: 0.95rem;
   background: #fff;
-  min-width: 100%; /* largura cheia no mobile */
+  min-width: 100%;
   outline: none;
 }
 .projects__filters select:focus,
@@ -55,14 +49,14 @@
   box-shadow: 0 0 0 3px rgba(0, 40, 86, 0.12);
 }
 
-/* ===== Grid (1 col no mobile) ===== */
+/*  Grid  */
 .projects__grid {
   display: grid;
   gap: 22px;
-  grid-template-columns: 1fr; /* base mobile */
+  grid-template-columns: 1fr;
 }
 
-/* ===== Card ===== */
+/*  Card  */
 .project-card {
   background: var(--azul-escuro);
   color: #e8eef8;
@@ -91,7 +85,7 @@
 
 .project-card__thumb {
   width: 100%;
-  height: 140px; /* mobile */
+  height: 140px;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -125,7 +119,7 @@
   color: #fff;
 }
 
-/* ===== Ver mais ===== */
+/*  Ver mais  */
 .projects__more {
   display: flex;
   justify-content: center;
@@ -152,7 +146,6 @@
   transform: translateY(-2px);
 }
 
-/* Linha decorativa */
 .linha-customizada {
   border: none;
   border-top: 1px solid var(--color-border, #d9d9d9);
@@ -160,16 +153,14 @@
   width: 100%;
 }
 
-/* =========================
-   ≥ 601px (tablet)
-   ========================= */
+/* RESPONSIVIDADE */
 @media (min-width: 601px) {
   .projects {
     padding: 32px 18px 40px;
   }
 
   .projects__filters {
-    flex-direction: row; /* vira em linha a partir de 601 */
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
@@ -189,27 +180,21 @@
   }
 }
 
-/* =========================
-   ≥ 900px (desktop)
-   ========================= */
 @media (min-width: 900px) {
   .projects {
-    padding: 40px 20px 48px; /* desktop original */
+    padding: 40px 20px 48px;
   }
 
   .projects__title h1 {
-    font-size: 1.9rem; /* desktop original */
+    font-size: 1.9rem;
   }
 
   .projects__filters select,
   .projects__filters input[type="search"] {
-    min-width: 220px; /* desktop original */
+    min-width: 220px;
   }
 
   .projects__grid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(300px, 1fr)
-    ); /* desktop original */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }

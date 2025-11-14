@@ -23,7 +23,6 @@ export default function ProjectsPage() {
 
         {/* Grid de Cards */}
         <section className="projects__grid" aria-label="Lista de projetos">
-          {/* Card 1 */}
           <article className="project-card">
             <h3 className="project-card__title">
               API de Gestão de Estoque em Tempo Real
@@ -39,7 +38,6 @@ export default function ProjectsPage() {
             </a>
           </article>
 
-          {/* Card 2 */}
           <article className="project-card">
             <h3 className="project-card__title">
               Pipeline de Processamento de Dados para Analytics
@@ -55,7 +53,6 @@ export default function ProjectsPage() {
             </a>
           </article>
 
-          {/* Card 3 */}
           <article className="project-card">
             <h3 className="project-card__title">
               Microsserviço de Autenticação Centralizada
@@ -71,7 +68,6 @@ export default function ProjectsPage() {
             </a>
           </article>
 
-          {/* Card 4 */}
           <article className="project-card">
             <h3 className="project-card__title">
               Sistema de Agendamento de Tarefas
@@ -92,7 +88,6 @@ export default function ProjectsPage() {
             </Link>
           </article>
 
-          {/* Card 5 */}
           <article className="project-card">
             <h3 className="project-card__title">API de Notificações</h3>
             <p className="project-card__campus">Ibmec Belo Horizonte, MG</p>
@@ -106,7 +101,6 @@ export default function ProjectsPage() {
             </a>
           </article>
 
-          {/* Card 6 */}
           <article className="project-card">
             <h3 className="project-card__title">
               Gateway de Pagamentos Simplificado

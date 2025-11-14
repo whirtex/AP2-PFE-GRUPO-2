@@ -99,28 +99,28 @@ export default function Footer() {
               <Link to="/projetos/backend">Backend</Link>
             </li>
             <li>
-              <a href="#">Frontend</a>
-            </li>
-            <li>
-              <a href="#">Inteligência Artificial</a>
-            </li>
-            <li>
-              <a href="#">Arquitetura</a>
+              <a href="#">User Experience</a>
             </li>
             <li>
               <a href="#">Administração</a>
             </li>
             <li>
-              <a href="#">Ecomomia e Finanças</a>
+              <a href="#">Arquitetura</a>
             </li>
             <li>
-              <a href="#">Mobile</a>
+              <a href="#">Inteligência Artificial</a>
             </li>
             <li>
               <a href="#">Marketing</a>
             </li>
             <li>
-              <a href="#">User Experience</a>
+              <a href="#">Mobile</a>
+            </li>
+            <li>
+              <a href="#">Ecomomia e Finanças</a>
+            </li>
+            <li>
+              <a href="#">Frontend</a>
             </li>
           </ul>
         </div>

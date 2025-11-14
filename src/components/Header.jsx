@@ -7,6 +7,7 @@ export default function Header({ onOpenLogin }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
+  // Fecha o menu ao aumentar a tela ou esc
   useEffect(() => {
     function onResize() {
       if (window.innerWidth > 600) setMenuOpen(false);
@@ -22,6 +23,7 @@ export default function Header({ onOpenLogin }) {
     };
   }, []);
 
+  //traar e destravar o sroll
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);

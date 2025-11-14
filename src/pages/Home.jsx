@@ -20,7 +20,6 @@ import JoaoA from "../assets/img/JoaoAdibe.png";
 import DiegoB from "../assets/img/DiegoBarreto.png";
 
 export default function Home() {
-  // opcional: marca o body com classe para escopar estilos
   useEffect(() => {
     document.body.classList.add("page-home");
     return () => document.body.classList.remove("page-home");
@@ -117,7 +116,6 @@ export default function Home() {
           <h3>Resultados reais dos nosso clientes</h3>
 
           <div className="grid-depoimentos">
-            {/* 1 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icArquitetura} alt="Arquitetura e UX" />
@@ -144,7 +142,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 2 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icBack} alt="Back-End" />
@@ -171,7 +168,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 3 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icFront} alt="Front-End" />
@@ -198,7 +194,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 4 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icIA} alt="Serviços de IA" />
@@ -223,7 +218,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 5 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icEcon} alt="Economia e Marketing" />
@@ -250,7 +244,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 6 */}
             <div className="depo-card">
               <div className="title-row">
                 <img src={icDireito} alt="Direito" />
