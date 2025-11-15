@@ -1,12 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/img/logo-Ibmec.svg";
 
 export default function Header({ onOpenLogin }) {
+  // Estado do menu mobile (hambúrguer)
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
 
+  // Estado do megamenu de "Projetos" (Desktop / hover)
+  const [isProjetosMenuOpen, setIsProjetosMenuOpen] = useState(false);
+
+  // Estado do acordeão "Projetos" (Mobile / clique)
+  const [isMobileProjetosOpen, setIsMobileProjetosOpen] = useState(false);
+
+  // Efeito para fechar menu mobile no resize ou com "Esc"
   useEffect(() => {
     function onResize() {
       if (window.innerWidth > 600) setMenuOpen(false);
@@ -22,25 +28,20 @@ export default function Header({ onOpenLogin }) {
     };
   }, []);
 
+  // Efeito para travar o scroll quando o menu mobile está aberto
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  // Função para fechar o menu mobile
+  // SUBSTITUA POR ISSO:
 
-  // 👇 função que cuida de ir pra seção certa
-  const handleSectionClick = (sectionId) => {
-    if (location.pathname === "/") {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      closeMenu();
-    } else {
-      navigate("/", { state: { scrollTo: sectionId } });
-      closeMenu();
-    }
-  };
+  // Função para fechar o menu mobile (agora memorizada)
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []); // <-- setMenuOpen é estável, não precisa de dependências
+
+  // Função que cuida de ir pra seção certa (agora memorizada)
 
   return (
     <header className="site-header">
@@ -72,38 +73,198 @@ export default function Header({ onOpenLogin }) {
           className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}
           aria-label="navegação principal"
         >
-          <ul onClick={closeMenu}>
+          <ul>
             <li>
-              <Link to="/">Início</Link>
+              <Link to="/" onClick={closeMenu}>
+                Início
+              </Link>
             </li>
             <li>
-              <Link to="/quem-somos">Quem Somos</Link>
+              <Link to="/quem-somos" onClick={closeMenu}>
+                Quem Somos
+              </Link>
             </li>
 
-            {/* 🍝 Projetos e Depoimentos com scroll inteligente */}
-            <li>
+            {/* ===== PROJETOS (MOBILE / ACORDEÃO) ===== */}
+            <li
+              className={`
+                header__mobile-only 
+                header__mobile-accordion 
+                ${isMobileProjetosOpen ? "accordion--open" : ""}
+              `}
+            >
               <a
                 href="#projetos"
+                className="accordion-trigger"
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick("projetos");
+                  e.preventDefault(); // Previne o scroll
+                  setIsMobileProjetosOpen((v) => !v); // Abre/fecha acordeão
                 }}
               >
                 Projetos
+                <span className="accordion-arrow" />
               </a>
-            </li>
-            <li>
-              <a
-                href="#depoimentos"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick("depoimentos");
-                }}
-              >
-                Depoimentos
-              </a>
+
+              {/* === VERSÃO 100% CORRIGIDA (Mobile) === */}
+              {isMobileProjetosOpen && (
+                <ul className="accordion-submenu">
+                  <li>
+                    <Link to="/projetos/direito" onClick={closeMenu}>
+                      Direito
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/arquitetura" onClick={closeMenu}>
+                      Arquitetura
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/front-end" onClick={closeMenu}>
+                      Front-end
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/administracao" onClick={closeMenu}>
+                      Administração
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/economia" onClick={closeMenu}>
+                      Economia e Finanças
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/ux" onClick={closeMenu}>
+                      User Experience
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/marketing" onClick={closeMenu}>
+                      Marketing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/ia" onClick={closeMenu}>
+                      Inteligência Artificial
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/back-end" onClick={closeMenu}>
+                      Back-end
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/projetos/mobile" onClick={closeMenu}>
+                      Mobile
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
 
+            {/* ===== PROJETOS (DESKTOP / MEGAMENU) ===== */}
+            <li
+              className="nav-item-dropdown header__desktop-only"
+              onMouseEnter={() => setIsProjetosMenuOpen(true)}
+              onMouseLeave={() => setIsProjetosMenuOpen(false)}
+            >
+              <span className="nav-link-trigger">
+                Projetos
+                <span className="accordion-arrow dropdown-arrow" />
+              </span>
+
+              {/* === VERSÃO 100% CORRIGIDA (Desktop) === */}
+              {isProjetosMenuOpen && (
+                <div className="megamenu-container">
+                  <div className="megamenu-grid">
+                    {/* Coluna 1 */}
+                    <div className="megamenu-column">
+                      <Link
+                        to="/projetos/direito"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Direito
+                      </Link>
+                      <Link
+                        to="/projetos/ux"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        User Experience
+                      </Link>
+                    </div>
+
+                    {/* Coluna 2 */}
+                    <div className="megamenu-column">
+                      <Link
+                        to="/projetos/arquitetura"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Arquitetura
+                      </Link>
+                      <Link
+                        to="/projetos/marketing"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Marketing
+                      </Link>
+                    </div>
+
+                    {/* Coluna 3 */}
+                    <div className="megamenu-column">
+                      <Link
+                        to="/projetos/ia"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Inteligência Artificial
+                      </Link>
+                      <Link
+                        to="/projetos/front-end"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Front-end
+                      </Link>
+                    </div>
+
+                    {/* Coluna 4 */}
+                    <div className="megamenu-column">
+                      <Link
+                        to="/projetos/administracao"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Administração
+                      </Link>
+                      <Link
+                        to="/projetos/back-end"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Back-end
+                      </Link>
+                    </div>
+
+                    {/* Coluna 5 */}
+                    <div className="megamenu-column">
+                      <Link
+                        to="/projetos/economia"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Economia e Finanças
+                      </Link>
+                      <Link
+                        to="/projetos/mobile"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Mobile
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </li>
+
+            {/* ===== DEPOIMENTOS (REMOVIDO) ===== */}
+            {/* O <li> de Depoimentos foi removido daqui */}
+
+            {/* ===== BOTÕES (APENAS MOBILE) ===== */}
             <li className="header__mobile-only">
               <button
                 type="button"
@@ -118,13 +279,18 @@ export default function Header({ onOpenLogin }) {
               </button>
             </li>
             <li className="header__mobile-only">
-              <Link to="/cadastro" className="btn btn--cadastre">
+              <Link
+                to="/cadastro"
+                className="btn btn--cadastre"
+                onClick={closeMenu}
+              >
                 Cadastre-se
               </Link>
             </li>
           </ul>
         </nav>
 
+        {/* ===== BOTÕES (APENAS DESKTOP) ===== */}
         <div className="header__actions">
           <button
             type="button"
@@ -139,6 +305,7 @@ export default function Header({ onOpenLogin }) {
         </div>
       </div>
 
+      {/* Overlay que fecha o menu mobile ao clicar fora */}
       {menuOpen && <div className="header__overlay" onClick={closeMenu} />}
     </header>
   );

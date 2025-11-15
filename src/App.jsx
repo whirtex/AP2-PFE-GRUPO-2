@@ -8,7 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
 import QuemSomos from "./pages/QuemSomos";
-import ProjectsPage from "./pages/Projetos";
+import ProjectsPage from "./pages/Projetos"; // Renomeei para ProjectsPage
 import ProjetoExemplo from "./pages/ProjetoExemplo";
 
 export default function App() {
@@ -25,8 +25,10 @@ export default function App() {
           element={<Cadastro onOpenLogin={() => setLoginOpen(true)} />}
         />
         <Route path="/quem-somos" element={<QuemSomos />} />
-        <Route path="/projetos/backend" element={<ProjectsPage />} />
+
         <Route path="/projetos/backend/exemplo" element={<ProjetoExemplo />} />
+
+        <Route path="/projetos/:categoria" element={<ProjectsPage />} />
       </Routes>
       <Footer />
       <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />

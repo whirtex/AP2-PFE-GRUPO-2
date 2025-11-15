@@ -310,6 +310,84 @@ ul {
   color: var(--color-primary-dark) !important;
 }
 
+.header__desktop-only {
+  display: none;
+}
+
+/* Garante que o <li> do acordeão ocupe a largura total */
+.header__mobile-accordion {
+  width: 100%;
+}
+
+/* O link <a> "Projetos" que vira o gatilho do acordeão */
+.header__nav li a.accordion-trigger {
+  /* Copia os estilos dos outros links do menu mobile */
+  /* display: block; <-- APAGUE esta linha */
+  padding: 12px 4px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+
+  /* Adiciona flex para alinhar a seta */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* A seta (inspirada no seu .footer__chevron) */
+.accordion-arrow {
+  display: inline-block;
+  border: solid var(--color-primary-dark);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+  transform: rotate(45deg); /* Aponta para baixo */
+  transition: transform 0.2s ease;
+  margin-right: 8px; /* Espaçamento da borda */
+}
+
+/* Gira a seta quando o acordeão está aberto */
+.accordion--open .accordion-arrow {
+  transform: rotate(-135deg); /* Aponta para cima */
+}
+
+/* O <ul> do sub-menu (acordeão) */
+.accordion-submenu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  /* Cor de fundo para diferenciar (opcional) */
+  background-color: #f9f9f9;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Links <li> do sub-menu */
+.accordion-submenu li {
+  padding-left: 12px; /* Indentação */
+}
+
+/* Links <a> do sub-menu */
+.accordion-submenu li a {
+  display: block;
+  padding: 10px 4px 10px 12px; /* Espaçamento */
+  color: var(--color-primary-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* Linha fina entre os sub-itens */
+}
+
+.accordion-submenu li:last-child a {
+  border-bottom: none;
+}
+
+.accordion-submenu li a:hover {
+  background-color: #f0f0f0;
+}
+
 /* HERO   */
 
 .hero {
@@ -743,6 +821,127 @@ ul {
 
   .header__mobile-only {
     display: none;
+  }
+
+  .header__mobile-only {
+    display: none;
+  }
+
+  /* Mostra o <li> do megamenu de desktop */
+  .header__desktop-only {
+    display: flex;
+    align-items: center;
+  }
+
+  /* O <li> container do megamenu */
+  .nav-item-dropdown {
+    /* Crucial para posicionar o megamenu */
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  /* O <span> "Projetos" que parece um link */
+  /* O <span> "Projetos" que parece um link */
+  .nav-link-trigger {
+    /* Copia os estilos do .header__nav li a:not(.btn) */
+    border-bottom: 0;
+    padding: 8px 0;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    position: relative;
+    cursor: pointer;
+
+    /* 👇 ADIÇÕES PARA ALINHAR A SETA 👇 */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* 👇 BLOCO NOVO PARA A SETA 👇 */
+  /* Estilo da seta (reutiliza o .accordion-arrow) */
+  .dropdown-arrow {
+    border-color: var(--color-primary-dark);
+    margin-right: 0;
+    transform: rotate(45deg); /* Aponta para baixo */
+    transition: transform 0.2s ease;
+  }
+
+  /* Gira a seta quando o mouse está sobre o item do menu */
+  .nav-item-dropdown:hover .dropdown-arrow {
+    transform: rotate(-135deg); /* Aponta para cima */
+  }
+
+  /* Adiciona o efeito de sublinhado no hover (igual aos outros links) */
+  .nav-link-trigger::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary-dark);
+    transition: width 0.3s ease;
+  }
+
+  /* Ativa o sublinhado quando o mouse está sobre o <li> (link ou menu) */
+  .nav-item-dropdown:hover .nav-link-trigger::after {
+    width: 100%;
+  }
+
+  /* O container principal do megamenu que flutua */
+  .megamenu-container {
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do <li> */
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    padding: 24px;
+    width: 900px;
+    z-index: 2000;
+  }
+
+  /* O grid que organiza as colunas */
+  .megamenu-grid {
+    display: grid;
+    /* Cria 2 colunas (como no JSX) */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px; /* Espaço entre as colunas */
+  }
+
+  /* Cada coluna */
+  .megamenu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espaço entre os links da coluna */
+  }
+
+  /* Título de cada coluna */
+  .megamenu-column strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+  }
+
+  /* Links <a> dentro do megamenu */
+  .megamenu-column a {
+    color: var(--color-primary-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 4px 0;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .megamenu-column a:hover {
+    color: var(--color-primary-light);
+    text-decoration: none;
   }
 
   .hero {
