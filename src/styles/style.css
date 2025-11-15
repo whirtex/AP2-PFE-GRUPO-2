@@ -321,8 +321,6 @@ ul {
 
 /* O link <a> "Projetos" que vira o gatilho do acordeão */
 .header__nav li a.accordion-trigger {
-  /* Copia os estilos dos outros links do menu mobile */
-  /* display: block; <-- APAGUE esta linha */
   padding: 12px 4px;
   font-weight: 700;
   font-size: 1.05rem;
@@ -663,7 +661,7 @@ ul {
 .footer__who-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
 }
 .footer__col a {
   color: var(--color-primary-light);
@@ -678,10 +676,10 @@ ul {
 .footer__project-list {
   column-count: 2;
   column-gap: 24px;
+  row-gap: 15px;
 }
 .footer__project-list li {
   break-inside: avoid;
-  padding-bottom: 10px;
 }
 
 .footer__section {
@@ -746,11 +744,6 @@ ul {
   padding: 6px 0 10px;
 }
 
-.footer__who-list li + li,
-.footer__project-list li + li {
-  margin-top: 10px;
-}
-
 .footer__who-list a,
 .footer__project-list a {
   display: block;
@@ -804,6 +797,8 @@ ul {
     padding: 8px 0;
     font-weight: 600;
     position: relative;
+    display: flex;
+    align-items: center;
   }
   .header__nav li a:not(.btn)::after {
     content: "";
@@ -836,7 +831,7 @@ ul {
   /* O <li> container do megamenu */
   .nav-item-dropdown {
     /* Crucial para posicionar o megamenu */
-    position: relative;
+    position: static;
     display: flex;
     align-items: center;
   }
@@ -851,14 +846,12 @@ ul {
     color: var(--color-primary-dark);
     position: relative;
     cursor: pointer;
-
-    /* 👇 ADIÇÕES PARA ALINHAR A SETA 👇 */
+    font-size: 1.05rem;
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  /* 👇 BLOCO NOVO PARA A SETA 👇 */
   /* Estilo da seta (reutiliza o .accordion-arrow) */
   .dropdown-arrow {
     border-color: var(--color-primary-dark);
@@ -895,20 +888,21 @@ ul {
     top: 100%; /* Posiciona abaixo do <li> */
     left: 50%;
     transform: translateX(-50%);
-
     background-color: var(--color-bg-light);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
     padding: 24px;
-    width: 900px;
+    width: 1000px;
+    height: 170px;
     z-index: 2000;
   }
 
   /* O grid que organiza as colunas */
   .megamenu-grid {
     display: grid;
-    /* Cria 2 colunas (como no JSX) */
+    max-width: 900px;
+    margin: 0 auto;
     grid-template-columns: repeat(5, 1fr);
     gap: 24px; /* Espaço entre as colunas */
   }
@@ -918,6 +912,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 12px; /* Espaço entre os links da coluna */
+    align-items: flex-start;
   }
 
   /* Título de cada coluna */
@@ -1087,7 +1082,7 @@ ul {
   .footer__who-list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
     padding: 0;
   }
 
@@ -1108,10 +1103,10 @@ ul {
     column-gap: 32px;
     padding: 0;
     margin: 0;
+    row-gap: 30px;
   }
 
   .footer__project-list li {
-    padding-bottom: 25px;
     break-inside: avoid;
   }
 
@@ -1171,20 +1166,23 @@ ul {
   .footer__project-list {
     column-count: initial !important;
     column-gap: 0 !important;
-
     display: grid !important;
     grid-template-columns: repeat(3, minmax(160px, 1fr));
-    gap: 8px 24px;
-  }
-  .footer__project-list li {
-    break-inside: auto;
-    padding-bottom: 0;
+    gap: 15px 24px;
+    padding: 0;
   }
 
   .footer__who-list {
     display: grid;
     grid-auto-rows: min-content;
-    gap: 10px;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .footer__project-list li,
+  .footer__who-list li {
+    break-inside: auto;
+    padding-bottom: 0; /* Garante que os <li> dos dois não tenham padding */
   }
 
   .bottom-bar__container {
@@ -1207,9 +1205,5 @@ ul {
 
   .grid-projetos {
     grid-template-columns: repeat(5, 1fr);
-  }
-
-  .footer__project-list {
-    grid-template-columns: repeat(3, minmax(180px, 1fr));
   }
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // O 'Link' já estava aqui, ótimo!
 
 import icDireito from "../assets/icons/direito.svg";
 import icArquitetura from "../assets/icons/arquitetura.svg";
@@ -60,62 +60,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJETOS */}
+      {/* ===== PROJETOS (ATUALIZADO) ===== */}
+      {/* Todos os 10 cards agora são <Link> */}
       <section className="projetos" id="projetos">
         <div className="container">
           <h3>Explore nossos projetos</h3>
           <div className="grid-projetos">
-            <div className="card">
+            <Link to="/projetos/direito" className="card">
               <img src={icDireito} alt="Direito" />
               <h4>Direito</h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/arquitetura" className="card">
               <img src={icArquitetura} alt="Arquitetura" />
               <h4>Arquitetura</h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/ia" className="card">
               <img src={icIA} alt="Inteligência Artificial" />
               <h4>
                 Inteligência
                 <br />
                 Artificial
               </h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/administracao" className="card">
               <img src={icAdm} alt="Administração" />
               <h4>Administração</h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/economia" className="card">
               <img src={icEcon} alt="Economia e Finanças" />
               <h4>
                 Economia
                 <br />e Finanças
               </h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/ux" className="card">
               <img src={icUX} alt="User Experience" />
               <h4>
                 User
                 <br />
                 Experience
               </h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/marketing" className="card">
               <img src={icMkt} alt="Marketing" />
               <h4>Marketing</h4>
-            </div>
-            <div className="card">
+            </Link>
+            <Link to="/projetos/front-end" className="card">
               <img src={icFront} alt="Front-end" />
               <h4>Front-end</h4>
-            </div>
-            <Link to="/projetos/backend" className="card">
+            </Link>
+            <Link to="/projetos/back-end" className="card">
               <img src={icBack} alt="Back-end" />
               <h4>Back-end</h4>
             </Link>
-            <div className="card">
+            <Link to="/projetos/mobile" className="card">
               <img src={icMobile} alt="Mobile" />
               <h4>Mobile</h4>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

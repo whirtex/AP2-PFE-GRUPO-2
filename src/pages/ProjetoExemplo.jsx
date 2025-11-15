@@ -1,7 +1,7 @@
 import "../styles/styleProjetoExemplo.css";
 import "../styles/style.css";
 
-import Projeto4 from "../assets/img/img-projetos4.jpg";
+import imagemExemplo from "../assets/img/imagemExemplo.png";
 
 export default function ProjetoExemplo() {
   return (
@@ -10,27 +10,34 @@ export default function ProjetoExemplo() {
       <main className="main-content">
         <section className="project-container">
           <div className="project-info">
-            <h1>Sistema de Agendamento de Tarefas</h1>
+            <h1>Lorem ipsum dolor sit amet, consectetur.</h1>
 
             <article>
               <h2>Descrição do Projeto:</h2>
               <p>
-                Este projeto consiste em um robusto microsserviço de backend,
-                projetado para orquestrar e automatizar processos de negócio que
-                precisam ser executados de forma recorrente. Através de uma API
-                RESTful segura, o sistema permite que outras aplicações
-                registrem "jobs" (tarefas) de forma programática, definindo
-                schedules de execução com alta flexibilidade por meio de
-                expressões cron. Uma vez agendada, cada tarefa entra em uma fila
-                de processamento que garante sua execução de forma confiável e
-                na ordem correta, mesmo em caso de falhas ou reinicializações do
-                sistema. A arquitetura oferece visibilidade completa sobre o
-                ciclo de vida de cada job, com status de sucesso ou falha e logs
-                detalhados, sendo a solução ideal para automatizar rotinas
-                críticas como o envio de relatórios diários, a sincronização
-                noturna de bancos de dados e backups programados, aumentando
-                drasticamente a eficiência operacional e reduzindo a necessidade
-                de intervenção manual.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur sagittis cursus consequat. Vestibulum commodo semper
+                arcu aliquet luctus. Quisque volutpat id orci ac porttitor. Cras
+                varius ornare arcu, id aliquet tellus ornare id. Nam rhoncus
+                consectetur mi, sit amet tincidunt tortor interdum vitae. Etiam
+                porttitor ante quam, semper viverra metus cursus eget. Aliquam
+                erat volutpat. Nulla lectus quam, scelerisque eget lobortis
+                eget, consequat ac magna. Proin ultrices ullamcorper magna eget
+                porttitor. Maecenas tortor purus, elementum at pretium vitae,
+                rhoncus eget augue. Phasellus sollicitudin lacinia nisl. Nulla
+                vitae urna ut lacus consectetur pellentesque vitae sed turpis.
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                Vestibulum convallis quis ipsum ac hendrerit. Maecenas diam
+                tortor, maximus eget pellentesque sed, lacinia placerat dolor.
+                Nullam vitae dignissim odio. Cras porta nisi eu pellentesque
+                sollicitudin. Aenean eget rhoncus nunc. Vestibulum ante ipsum
+                primis in faucibus orci luctus et ultrices posuere cubilia
+                curae; Etiam hendrerit, leo ac consectetur vulputate, odio
+                ligula condimentum nisi, vel ullamcorper ante purus non eros.
+                Sed vehicula vel erat nec fermentum. Aenean et mauris quis nisl
+                sagittis convallis eu non ligula. Duis tincidunt sem vel nisi
+                euismod tempor. Pellentesque eu sodales dolor. Mauris accumsan
+                egestas neque a rutrum. Nullam suscipit erat.
               </p>
             </article>
 
@@ -39,7 +46,7 @@ export default function ProjetoExemplo() {
               <div className="item-relacionado">
                 <h3>Membros</h3>
                 <p>
-                  <i className="fa-solid fa-users" aria-hidden="true" /> 5
+                  <i className="fa-solid fa-users" aria-hidden="true" /> ##
                   pessoas
                 </p>
               </div>
@@ -48,7 +55,7 @@ export default function ProjetoExemplo() {
                 <h3>Tecnologias</h3>
                 <p>
                   <i className="fa-solid fa-microchip" aria-hidden="true" />{" "}
-                  Node JS, TypeScript, Redis, PostgreSQL, Docker
+                  Tec1, Tec2, Tec3, Tec4, ...
                 </p>
               </div>
 
@@ -63,9 +70,9 @@ export default function ProjetoExemplo() {
               <div className="item-relacionado">
                 <h3>Serviços Prestados</h3>
                 <p>
-                  <i className="fa-solid fa-robot" aria-hidden="true" />{" "}
-                  Arquitetura de Backend, Desenvolvimento de API, Automação de
-                  Processos.
+                  <i className="fa-solid fa-robot" aria-hidden="true" /> Lorem
+                  ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  porttitor dolor nec lacus.
                 </p>
               </div>
             </aside>
@@ -81,7 +88,7 @@ export default function ProjetoExemplo() {
           </div>
 
           <figure>
-            <img src={Projeto4} alt="Preview do sistema de agendamento" />
+            <img src={imagemExemplo} alt="Preview do sistema de agendamento" />
           </figure>
         </section>
       </main>

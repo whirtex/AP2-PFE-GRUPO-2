@@ -76,7 +76,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* seção Projetos  */}
+        {/* ===== SEÇÃO PROJETOS (ATUALIZADA) ===== */}
         <div
           className={`footer__col footer__col--projects footer__section ${
             openProj ? "is-open" : ""
@@ -93,34 +93,34 @@ export default function Footer() {
 
           <ul className="footer__list footer__project-list">
             <li>
-              <a href="#">Direito</a>
+              <Link to="/projetos/direito">Direito</Link>
             </li>
             <li>
-              <Link to="/projetos/backend">Backend</Link>
+              <Link to="/projetos/back-end">Back-end</Link>
             </li>
             <li>
-              <a href="#">User Experience</a>
+              <Link to="/projetos/ux">User Experience</Link>
             </li>
             <li>
-              <a href="#">Administração</a>
+              <Link to="/projetos/administracao">Administração</Link>
             </li>
             <li>
-              <a href="#">Arquitetura</a>
+              <Link to="/projetos/arquitetura">Arquitetura</Link>
             </li>
             <li>
-              <a href="#">Inteligência Artificial</a>
+              <Link to="/projetos/ia">Inteligência Artificial</Link>
             </li>
             <li>
-              <a href="#">Marketing</a>
+              <Link to="/projetos/marketing">Marketing</Link>
             </li>
             <li>
-              <a href="#">Mobile</a>
+              <Link to="/projetos/mobile">Mobile</Link>
             </li>
             <li>
-              <a href="#">Ecomomia e Finanças</a>
+              <Link to="/projetos/economia">Economia e Finanças</Link>
             </li>
             <li>
-              <a href="#">Frontend</a>
+              <Link to="/projetos/front-end">Front-end</Link>
             </li>
           </ul>
         </div>

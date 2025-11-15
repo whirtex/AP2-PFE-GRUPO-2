@@ -1,4 +1,5 @@
-import { useEffect, useState, useCallback } from "react";
+// PASSO 1: Adicione 'useRef' e remova 'useLocation' e 'useNavigate'
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/logo-Ibmec.svg";
 
@@ -11,6 +12,9 @@ export default function Header({ onOpenLogin }) {
 
   // Estado do acordeão "Projetos" (Mobile / clique)
   const [isMobileProjetosOpen, setIsMobileProjetosOpen] = useState(false);
+
+  // PASSO 2: Adicione a ref para o timer
+  const closeTimer = useRef(null);
 
   // Efeito para fechar menu mobile no resize ou com "Esc"
   useEffect(() => {
@@ -33,15 +37,24 @@ export default function Header({ onOpenLogin }) {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
-  // Função para fechar o menu mobile
-  // SUBSTITUA POR ISSO:
-
-  // Função para fechar o menu mobile (agora memorizada)
   const closeMenu = useCallback(() => {
     setMenuOpen(false);
-  }, []); // <-- setMenuOpen é estável, não precisa de dependências
+  }, []);
 
-  // Função que cuida de ir pra seção certa (agora memorizada)
+  // PASSO 3: Adicione as funções de "entrar" e "sair" com o timer
+  const handleMenuEnter = () => {
+    // Cancela qualquer timer de fechamento que esteja pendente
+    clearTimeout(closeTimer.current);
+    // Abre o menu
+    setIsProjetosMenuOpen(true);
+  };
+
+  const handleMenuLeave = () => {
+    // Inicia um novo timer para fechar o menu
+    closeTimer.current = setTimeout(() => {
+      setIsProjetosMenuOpen(false);
+    }, 200); // 200ms de "período de carência"
+  };
 
   return (
     <header className="site-header">
@@ -163,10 +176,11 @@ export default function Header({ onOpenLogin }) {
             </li>
 
             {/* ===== PROJETOS (DESKTOP / MEGAMENU) ===== */}
+            {/* PASSO 4: Aplique as novas funções de hover aqui */}
             <li
               className="nav-item-dropdown header__desktop-only"
-              onMouseEnter={() => setIsProjetosMenuOpen(true)}
-              onMouseLeave={() => setIsProjetosMenuOpen(false)}
+              onMouseEnter={handleMenuEnter}
+              onMouseLeave={handleMenuLeave}
             >
               <span className="nav-link-trigger">
                 Projetos
@@ -175,7 +189,12 @@ export default function Header({ onOpenLogin }) {
 
               {/* === VERSÃO 100% CORRIGIDA (Desktop) === */}
               {isProjetosMenuOpen && (
-                <div className="megamenu-container">
+                // E aplique aqui também
+                <div
+                  className="megamenu-container"
+                  onMouseEnter={handleMenuEnter}
+                  onMouseLeave={handleMenuLeave}
+                >
                   <div className="megamenu-grid">
                     {/* Coluna 1 */}
                     <div className="megamenu-column">
@@ -212,16 +231,16 @@ export default function Header({ onOpenLogin }) {
                     {/* Coluna 3 */}
                     <div className="megamenu-column">
                       <Link
-                        to="/projetos/ia"
-                        onClick={() => setIsProjetosMenuOpen(false)}
-                      >
-                        Inteligência Artificial
-                      </Link>
-                      <Link
                         to="/projetos/front-end"
                         onClick={() => setIsProjetosMenuOpen(false)}
                       >
                         Front-end
+                      </Link>
+                      <Link
+                        to="/projetos/ia"
+                        onClick={() => setIsProjetosMenuOpen(false)}
+                      >
+                        Inteligência Artificial
                       </Link>
                     </div>
 
@@ -244,6 +263,7 @@ export default function Header({ onOpenLogin }) {
                     {/* Coluna 5 */}
                     <div className="megamenu-column">
                       <Link
+                        // BUG CORRIGIDO AQUI
                         to="/projetos/economia"
                         onClick={() => setIsProjetosMenuOpen(false)}
                       >
@@ -260,9 +280,6 @@ export default function Header({ onOpenLogin }) {
                 </div>
               )}
             </li>
-
-            {/* ===== DEPOIMENTOS (REMOVIDO) ===== */}
-            {/* O <li> de Depoimentos foi removido daqui */}
 
             {/* ===== BOTÕES (APENAS MOBILE) ===== */}
             <li className="header__mobile-only">

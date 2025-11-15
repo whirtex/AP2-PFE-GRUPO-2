@@ -23,9 +23,13 @@ export default function ProjectsPage() {
               src={imagemExemplo}
               alt="Tela de código representando API de estoque"
             />
-            <a href="#" className="project-card__btn" role="button">
+            <Link
+              to="/projetos/backend/exemplo"
+              className="project-card__btn"
+              role="button"
+            >
               Ver Projeto
-            </a>
+            </Link>
           </article>
 
           <article className="project-card">
@@ -36,9 +40,13 @@ export default function ProjectsPage() {
               src={imagemExemplo}
               alt="Visual de dados e gráficos"
             />
-            <a href="#" className="project-card__btn" role="button">
+            <Link
+              to="/projetos/backend/exemplo"
+              className="project-card__btn"
+              role="button"
+            >
               Ver Projeto
-            </a>
+            </Link>
           </article>
 
           <article className="project-card">
@@ -49,9 +57,13 @@ export default function ProjectsPage() {
               src={imagemExemplo}
               alt="Fluxos de autenticação e segurança"
             />
-            <a href="#" className="project-card__btn" role="button">
-              Ver Projetos
-            </a>
+            <Link
+              to="/projetos/backend/exemplo"
+              className="project-card__btn"
+              role="button"
+            >
+              Ver Projeto
+            </Link>
           </article>
 
           <article className="project-card">
@@ -80,9 +92,13 @@ export default function ProjectsPage() {
               src={imagemExemplo}
               alt="Agenda e tarefas automatizadas"
             />
-            <a href="#" className="project-card__btn" role="button">
+            <Link
+              to="/projetos/backend/exemplo"
+              className="project-card__btn"
+              role="button"
+            >
               Ver Projeto
-            </a>
+            </Link>
           </article>
 
           <article className="project-card">
@@ -93,9 +109,13 @@ export default function ProjectsPage() {
               src={imagemExemplo}
               alt="Integração com provedores de pagamento"
             />
-            <a href="#" className="project-card__btn" role="button">
+            <Link
+              to="/projetos/backend/exemplo"
+              className="project-card__btn"
+              role="button"
+            >
               Ver Projeto
-            </a>
+            </Link>
           </article>
         </section>
 
